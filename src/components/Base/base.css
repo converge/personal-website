@@ -1,0 +1,291 @@
+/*
+ * areas
+ */
+ .profile-pic-area {
+  grid-area: profile-pic;
+  align-content: center;
+}
+
+.profile-pic-area img {
+  width: 75%;
+}
+
+.profile-info-area {
+  grid-area: profile-info;
+}
+
+.about-me-area {
+  grid-area: about-me;
+}
+
+.experience-area {
+  grid-area: experience;
+}
+
+.languages-area {
+  grid-area: languages;
+}
+
+.skills-area {
+  grid-area: skills;
+}
+
+.blog-area {
+  grid-area: blog;
+}
+
+.projects-area {
+  grid-area: projects;
+}
+
+.contact-me-area {
+  grid-area: contact-me;
+}
+
+.social-area {
+  grid-area: social;
+}
+
+/* */
+.content-block {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  background-color: #111213;
+}
+
+.content-block img {
+  object-fit: contain;
+}
+
+.content-block ul {
+  list-style: none;
+  padding: 0;
+}
+
+.content-block li {
+  margin: 15px;
+}
+
+.work-experience {
+  width: auto;
+  font-size: 0.9em;
+  margin-left: 25px;
+}
+
+.work-experience li {
+  margin: 0px;
+}
+
+.title-bar {
+  margin-top: 50px;
+  justify-content: center;
+  text-align: center;
+}
+
+.title-bar-experience {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  justify-content: center;
+  text-align: center;
+}
+
+.blog-posts {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.leftbar-text {
+  width: auto;
+  margin-top: 50px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.leftbar-text-single {
+  width: 300px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.language-skills ul {
+  margin-top: 50px;
+}
+
+.language-skills li {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.single-line {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.single-line-email {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.social-links li {
+  text-align: center;
+}
+.social-links ul:first-child {
+  margin-top: 50px;
+}
+
+.social-links ul:last-child {
+  margin-bottom: 50px;
+}
+
+.main-skill {
+  display: grid;
+  grid-template-columns: 100px 240px;
+  grid-template-rows: 52px;
+  justify-content: center;
+}
+
+.main-skill:last-child {
+  margin-bottom: 50px;
+}
+
+.skill-name {
+  text-align: center;
+  padding-top: 8px;
+}
+
+.skill-name ul {
+  width: 100%;
+}
+
+.skill-name li {
+  margin: 0;
+}
+.skill-name li:nth-child(2) {
+  margin: -5px;
+}
+
+.skill-name img {
+  width: 65%;
+  opacity: 0.5;
+}
+
+.skill-circles li {
+  display: inline-block;
+  margin: 10px;
+}
+
+.yellow-skill-dot {
+  width: 26px;
+  height: 26px;
+  background-color: #f2da34;
+  border-radius: 50%;
+}
+
+.grey-skill-dot {
+  width: 26px;
+  height: 26px;
+  background-color: #DEDEDE;
+  border-radius: 50%;
+}
+
+.studying-title {
+  margin: 50px 0 20px 0;
+  text-align: center;
+}
+
+aside .container {
+  display: grid;
+  grid-template: 
+    "experience"
+    "languages"
+    "skills"
+    "social"
+    "contact-me"
+}
+
+header {
+grid-column: 2;
+}
+
+aside {
+grid-column: 3;
+}
+
+footer {
+grid-column: 3;
+}
+
+/*
+ * tablet and mobile landscape
+ */
+@media (min-width: 600px) {
+  .language-skills {
+    text-align: center;
+  }
+
+  .language-skills li {
+    display: inline;
+    margin: 45px;
+  }
+
+  .profile-pic-area img {
+    object-fit: contain;
+  }
+}
+
+/*
+ * desktop
+ */
+@media (min-width: 1450px) {
+  .container {
+    display: grid;
+    grid-template-columns: 494px 954px;
+    background-color: #111213;
+  }
+
+  header {
+    display: grid;
+    grid-column: 1;
+    grid-template:
+      "profile-pic"
+      "profile-info"
+      "about-me"
+      "projects"
+      "blog"
+  }
+
+  aside {
+    display: grid;
+    grid-column: 2;
+    grid-template: 
+      "experience"
+      "languages"
+      "skills"
+  }
+
+  footer {
+    display: grid;
+    grid-column: 2;
+    grid-template: 
+      "social"
+      "contact-me"
+  }
+
+  .profile-pic-area {
+    justify-content: start;
+  }
+  .experience-area, .languages-area, .skills-area, .social-area, .contact-me-area {
+    background-color: #ffffff;
+    color: #111213;
+  }
+
+  .work-experience {
+    font-size: 1em;
+  }
+
+  
+}
