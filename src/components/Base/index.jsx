@@ -14,8 +14,28 @@ import socialBar from '../../imgs/social_bar.png'
 import contactMeBar from '../../imgs/contactme_bar.png'
 import skillShadow from '../../imgs/skill_shadow.png'
 
-
 export default class Base extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      fields: {}
+    }
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(this.state.fields)
+  }
+
+  handleChange = (e) => {
+    let fields = this.state.fields
+    console.log(this.state.fields)
+    fields[e.target.name] = e.target.value
+    this.setState({
+      fields
+    })
+  }
 
   render() {
     return (
@@ -30,10 +50,12 @@ export default class Base extends Component {
                 <img src={profileBar} alt='Profile Bar' />
               </p>
               <p className="leftbar-text">
-                I'm Brazilian, 35 years old, passionate about technology since my teenage years.
+                I'm Brazilian, 35 years old, passionate about technology
+                since my teenage years and curious about future developments.
             </p>
               <p className="leftbar-text">
                 I have been a software developer for the past eleven years.
+                Nowadays I work as Senior Full Stack Developer.
             </p>
             </div>
             <div className="content-block about-me-area">
@@ -44,8 +66,18 @@ export default class Base extends Component {
                 I see work as an activity to make the planet we live on better.
             </p>
               <p className="leftbar-text">
-                I believe that when we’re feeling good, everything around us becomes good. That’s why I’m passionate about road cycling and meditation, keeping mind body and spirit healthy is the first step to be fine with ourselfs and others.
+                To make the world a better place I want to create software that
+                enables the digital opportunities of businesses.
             </p>
+              <p className="leftbar-text">
+                That’s why I’m passionate about road cycling and meditation,
+                keeping mind, body and spirit healthy is the first step to be
+                fine with ourselves and others.
+            </p>
+              <p className="leftbar-text">
+                A balanced life is key to amazing software.
+            </p>
+
             </div>
             <div className="content-block projects-area">
               <p className="title-bar">
@@ -129,21 +161,10 @@ export default class Base extends Component {
               <div className="work-experience">
                 <ul>
                   <li>
-                    2009-2010
-                </li>
-                  <li>
-                    Freelancer Web Developer
-                </li>
-                </ul>
-              </div>
-
-              <div className="work-experience">
-                <ul>
-                  <li>
                     2003 - 2006 and 2010-2018
               </li>
                   <li>
-                    Fortunata Indústria e Comércio de Confecções Ltda
+                    Fortunata Indústria e Comércio de Confecções Ltda
               </li>
                   <li>
                     Job title 2003-2006: General Tech Supervisor
@@ -152,11 +173,20 @@ export default class Base extends Component {
                     Job title 2010-2018: General Business Director
               </li>
                   <li>
-                    Worked on all sides: Technology, Marketing, Finances, Strategy, and gave support for every area.
+                    Worked on all sides, leading eleven employers: <b>Technology</b>, Marketing, Finances, Strategy, and gave support for every area leading 11 employees.
               </li>
                   <li>
-                    Technology Projects: 2 eCommerces (Magento), B2C eCommerce (CakePHP/MySQL). Installation, customization and maintenance of OpenERP (Odoo).
-              </li>
+                    <b>Technology Projects:</b>
+                  </li>
+                  <li className="job-desc">
+                    2 eCommerces (using Magento)
+                  </li>
+                  <li className="job-desc">
+                    B2C eCommerce platform to register B2C orders (PHP/CakePHP/MySQL)
+                  </li>
+                  <li className="job-desc">
+                    Installation, customization and maintenance of OpenERP (Odoo/Python/PostgreSQL).
+                  </li>
                 </ul>
               </div>
 
@@ -182,8 +212,8 @@ export default class Base extends Component {
                 <img src={skillsBar} alt='Main Skills' />
               </p>
               <div className="studying-title">
-                STUDYING AND FOCUSED ON
-            </div>
+                <b>Main Skills</b>
+              </div>
 
               <div className="main-skill">
                 <div className="skill-name">
@@ -239,7 +269,7 @@ export default class Base extends Component {
                       <div className="yellow-skill-dot"></div>
                     </li>
                     <li>
-                      <div className="grey-skill-dot"></div>
+                      <div className="yellow-skill-dot"></div>
                     </li>
                   </ul>
                 </div>
@@ -293,7 +323,7 @@ export default class Base extends Component {
                       <div className="yellow-skill-dot"></div>
                     </li>
                     <li>
-                      <div className="grey-skill-dot"></div>
+                      <div className="yellow-skill-dot"></div>
                     </li>
                     <li>
                       <div className="grey-skill-dot"></div>
@@ -383,7 +413,7 @@ export default class Base extends Component {
                       <div className="yellow-skill-dot"></div>
                     </li>
                     <li>
-                      <div className="grey-skill-dot"></div>
+                      <div className="yellow-skill-dot"></div>
                     </li>
                     <li>
                       <div className="grey-skill-dot"></div>
@@ -407,14 +437,14 @@ export default class Base extends Component {
               <div className="single-line">
                 <ul>
                   <li>
-                    github.com/converge
-              </li>
+                    <a href="https://github.com/converge">github.com/converge</a>
+                  </li>
                   <li>
-                    LinkedIn
-              </li>
+                    <a href="https://www.linkedin.com/in/joao-paulo-vanzuita/" >LinkedIn</a>
+                  </li>
                   <li>
-                    Twitter
-              </li>
+                    <a href="https://twitter.com/joao_o">Twitter</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -422,9 +452,19 @@ export default class Base extends Component {
               <p className="title-bar">
                 <img src={contactMeBar} alt="Contact Me" />
               </p>
-              <p className="single-line-email">
-                email@here.com
-              </p>
+                <div className="email-form">
+                <form onSubmit={this.handleSubmit}>
+                  <div className="email-item">
+                    <input name='email' type='text' placeholder='your e-mail' onChange={this.handleChange} />
+                  </div>
+                  <div className="email-item">
+                    <textarea name='msg' placeholder='Your message' onChange={this.handleChange} />
+                    <div className="email-item">
+                      <input type='submit' value='Submit' />
+                    </div>
+                  </div>
+                </form>
+                </div>
             </div>
           </footer>
         </div>

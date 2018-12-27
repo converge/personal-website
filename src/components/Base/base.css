@@ -6,9 +6,9 @@
   align-content: center;
 }
 
-.profile-pic-area img {
+/* .profile-pic-area img {
   width: 75%;
-}
+} */
 
 .profile-info-area {
   grid-area: profile-info;
@@ -234,6 +234,48 @@ grid-column: 3;
 
   .profile-pic-area img {
     object-fit: contain;
+  }
+  .job-desc {
+    padding-left: 20px;
+  }
+
+  .email-form {
+    margin-top: 60px;
+    margin-bottom: 50px;
+    font-size: 18px;
+    text-align: left;
+    width: 600px;
+  }
+
+  .email-item input[type='text'], .email-item textarea {
+    width: 250px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .email-item textarea {
+    width: 550px;
+    height: 260px;
+  }
+
+  .email-item input[type='submit'] {
+    margin-left: 30px;
+    background-color: #f2da34;
+    text-transform: uppercase;
+    border: 0;
+    width: 200px;
+    height: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .email-item input[type='submit']:hover {
+    color: #ffffff;
+    background-color: #000000;
+  }
+  .email-item input[type='submit']:active {
+    background-color: #464646;
   }
 }
 

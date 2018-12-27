@@ -4,6 +4,12 @@
   grid-template-columns: auto;
 }
 
+a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+
 /*
  * tablet and mobile landscape
  */
