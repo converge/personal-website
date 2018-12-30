@@ -29,17 +29,17 @@ app.post('/send_email', (req, res) => {
       `
 
       const transporter = nodemailer.createTransport({
-        host: 'smtp.migadu.com',
+        host: '',
         port: 587,
         secure: false,
         auth: {
-          user: 'sender@joaovanzuita.me',
+          user: '',
           pass: ''
         }
       })
       let mailOptions = {
-        from: '"João Vanzuita" <sender@joaovanzuita.me>',
-        to: 'hello@joaovanzuita.me',
+        from: '',
+        to: '',
         replyTo: `${req.body.email}`,
         subject: `${req.body.subject}`,
         html: htmlEmail
