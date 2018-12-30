@@ -24,7 +24,11 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "axios": "^0.18.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
     "formik": "^1.4.1",
+    "nodemailer": "^5.0.0",
     "react-helmet": "^5.2.0"
   }
 }
