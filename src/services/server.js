@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({
 // enable all cors requests
 app.use(cors())
 
+// send email
 app.post('/send_email', (req, res) => {
   console.log(req.body)
   nodemailer.createTestAccount(
