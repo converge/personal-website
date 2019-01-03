@@ -46,11 +46,12 @@ app.post('/send_email', (req, res) => {
       }
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-          return console.log(error)
+          return res.status(500).send('Email sent')
         }
         console.log('Message sent: %s', info.messageId)
         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info))
-        res.render('contact', {msg: 'Email has been sent'})
+        // return res.render('contact', {msg: 'Email has been sent'})
+        return res.status(200).send('Email sent')
       })
     }
   )
