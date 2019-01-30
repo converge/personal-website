@@ -31,11 +31,14 @@
     margin-left: 30px;
     margin-bottom: 10px;
     font-size: 18px;
+    padding: 5px;
   }
 
   .email-item textarea {
     width: 550px;
     height: 260px;
+    border: 1px solid #ccc;
+    padding: 10px;
   }
 
   .email-item button {

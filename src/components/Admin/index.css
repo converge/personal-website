@@ -1,0 +1,25 @@
+.login-item {
+  display: block;
+}
+
+.login-item input[type="text"], .login-item input[type="password"] {
+  width: 200px;
+  height: 25px;
+  margin-top: 10px;
+}
+
+.login-item button {
+  margin-top: 20px;
+  background-color: #f2da34;
+  text-transform: uppercase;
+  border: 0;
+  width: 208px;
+  height: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+h1 {
+  text-align: center;
+}
+

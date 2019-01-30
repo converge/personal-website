@@ -7,10 +7,11 @@ import { Formik, Field, Form, ErrorMessage } from 'formik'
 const EmailForm = () => (
   <div>
     <div className="content-block contact-me-area">
-      <p className="title-bar">
-        <img src={contactMeBar} alt="Contact Me" />
-      </p>
+      <section>
+        <p className="title-bar">CONTACT ME</p>
+      </section>
       <div className="email-form">
+
         <Formik
           initialValues={{
             name: '',
@@ -18,6 +19,7 @@ const EmailForm = () => (
             subject: '',
             msg: '',
           }}
+
           validate={values => {
             let errors = {}
             if (!values.name) {
@@ -33,10 +35,11 @@ const EmailForm = () => (
             }
             return errors
           }}
-          onSubmit ={ async (values, actions) => {
+
+          onSubmit={async (values, actions) => {
             actions.setStatus({
-                success: 'Sending email...',
-                css: 'sending'
+              success: 'Sending email...',
+              css: 'sending'
             })
             actions.setSubmitting(false)
             const response = await api.post('/send_email', {
@@ -47,17 +50,17 @@ const EmailForm = () => (
             })
             if (response.status === 200) {
               actions.setStatus({
-                  success: 'Email sent !',
-                  css: 'success'
+                success: 'Email sent !',
+                css: 'success'
               })
             } else {
               actions.setStatus({
-                  success: 'Something went wrong, email not sent !',
-                  css: 'error'
+                success: 'Something went wrong, email not sent !',
+                css: 'error'
               })
             }
           }}
-          render={ x  => (
+          render={x => (
             <Form>
               <div className="email-item">
                 <Field name='name' type='text' placeholder='Name' />

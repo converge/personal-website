@@ -27,6 +27,7 @@ a {
   .App {
     display: grid;
     grid-template-columns: auto;
+    grid-template-rows: auto;
     justify-content: center;
   }
 }

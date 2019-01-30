@@ -1,10 +1,26 @@
+require("dotenv").config();
 const express = require('express')
-const bodyParser = require('body-parser')
-const nodemailer = require('nodemailer')
-const app = express()
 const cors = require('cors')
+const mongoose = require('mongoose')
+// to generate random string
+const routes = require('./routes')
+
+const passport = require('passport')
+const bodyParser = require('body-parser')
+const session = require('express-session');
+const mongoDB = process.env.MONGODB;
+
+const app = express()
+
+require('./passportConfig')(passport);
+
+mongoose.connect(mongoDB, { useNewUrlParser: true })
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err));
 
 // parse form into json
+// necessary because we re working with JSON objects,
+// and Express need to know how to parse/work with JSON files
 app.use(bodyParser.json())
 // returns key/value object where the value can
 // be a string or array (when extended is false)
@@ -15,49 +31,26 @@ app.use(bodyParser.urlencoded({
 // enable all cors requests
 app.use(cors())
 
-// send email
-app.post('/send_email', (req, res) => {
-  console.log(req.body)
-  nodemailer.createTestAccount(
-    (err, account) => {
-      const htmlEmail = `
-        <h3>Contact Details</h3>
-        <p>Name: ${req.body.name}</p>
-        <p>E-mail: ${req.body.email}</p>
-        <p>Subject: ${req.body.subject}</p>
-        <h3>Message</h3>
-        <p>${req.body.msg}</p>
-      `
+// Express session
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
 
-      const transporter = nodemailer.createTransport({
-        host: '',
-        port: 587,
-        secure: false,
-        auth: {
-          user: '',
-          pass: ''
-        }
-      })
-      let mailOptions = {
-        from: '',
-        to: '',
-        replyTo: `${req.body.email}`,
-        subject: `${req.body.subject}`,
-        html: htmlEmail
-      }
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          return res.status(500).send('Email sent')
-        }
-        console.log('Message sent: %s', info.messageId)
-        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info))
-        // return res.render('contact', {msg: 'Email has been sent'})
-        return res.status(200).send('Email sent')
-      })
-    }
-  )
-})
+// passport
+app.use(passport.initialize())
+app.use(passport.session())
 
-const PORT = 3001
+app.use('/', routes)
+// app.use('/signin', routes)
+
+app.use((err, req, res, next) => {
+  res.status(500).json(err);
+});
+
+const PORT = 3007
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`))

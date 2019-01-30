@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { BrowserRouter } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import './App.css';
-import Base from './components/Base'
+import Routes from './components/Routes'
+import Dashboard from './components/Dashboard'
 
 class App extends Component {
   render() {
@@ -10,7 +12,9 @@ class App extends Component {
         <Helmet>
           <title>João Vanzuita - Full Stack Developer</title>
         </Helmet>
-        <Base />
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
       </div>
     );
   }
