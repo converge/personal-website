@@ -1,5 +1,4 @@
 import React from 'react'
-import contactMeBar from '../../imgs/contactme_bar.png'
 import './index.css'
 import api from '../../services/api'
 import { Formik, Field, Form, ErrorMessage } from 'formik'

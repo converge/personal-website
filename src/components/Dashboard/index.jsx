@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { signOut } from "../../store/actions/authActions";
-import { Switch, Route, Redirect, Link } from 'react-router-dom'
-import createPost from '../Blog/createPost'
-import { BrowserRouter } from 'react-router-dom'
-
+import { Route, Redirect } from 'react-router-dom'
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
@@ -20,9 +17,9 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 class Dashboard extends Component {
 
   render() {
+    console.log('authenticated ? ', this.props.auth.isAuthenticated)
     return (
       <div>
-        <h1>Dashboard</h1>
         <p>
           <span onClick={() => this.props.signOut(() => this.props.history.push('/admin'))}>
             Logout
@@ -30,8 +27,6 @@ class Dashboard extends Component {
         </p>
         <p>Users:</p>
         <p>Blog Posts:</p>
-        
-
       </div>
     )
   }

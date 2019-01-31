@@ -3,11 +3,13 @@ import { Formik, Field, Form, ErrorMessage } from 'formik'
 import { connect } from 'react-redux'
 import { signIn } from '../../store/actions/authActions'
 import './index.css'
-import createPost from '../Blog/createPost'
+import CreatePost from '../Blog/createPost'
+import Dashboard from '../Dashboard'
 import { Switch, Route, Redirect, Link } from 'react-router-dom'
 
 
 class SignInForm extends Component {
+  
   handleSubmit = async (values, actions) => {
     actions.setSubmitting(false)
   
@@ -26,8 +28,8 @@ class SignInForm extends Component {
         </p>
 
         <Switch>
-          <Route path='/admin/blog/createpost' component={createPost} />
-          {/* <PrivateRoute path='/admin/dashboard' component={Dashboard} /> */}
+          <Route path='/admin/blog/createpost' exact component={CreatePost} />
+          <Route path='/admin/dashboard' exact component={Dashboard} />
         </Switch>
 
         <Formik

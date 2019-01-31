@@ -45,7 +45,7 @@ router.post('/signup', (req, res) => {
   });
 })
 
-router.post('/signin', (req, res, next) => {
+router.post('/signin', (req, res, redirect) => {
   passport.authenticate('local', (err, user, info) => {
     console.log('user: ', user)
     if (err) {
@@ -53,17 +53,18 @@ router.post('/signin', (req, res, next) => {
       return res.status(401).json(err);
     }
     if (user) {
+      redirect()
       return res.status(200).json('logged in!')
     }
-  })(req, res, next)
+  })(req, res, redirect)
 })
 
-
 // Logout
-router.get('/logout', (req, res) => {
+router.get('/signout', (req, res, redirect) => {
   req.logout();
   req.flash('success_msg', 'You are logged out');
-  res.redirect('/users/login');
+  redirect()
+  return res.send(200).json('logged out')
 });
 
 router.post('/send_email', (req, res) => {

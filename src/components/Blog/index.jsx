@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import blogBar from '../../imgs/blog_bar.png'
 import './blog.css'
 
 const data = [
