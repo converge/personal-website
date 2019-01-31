@@ -3,7 +3,8 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 // to generate random string
-const routes = require('./routes')
+const index = require('./routes/index')
+const blog = require('./routes/blog')
 
 const passport = require('passport')
 const bodyParser = require('body-parser')
@@ -14,7 +15,7 @@ const app = express()
 
 require('./passportConfig')(passport);
 
-mongoose.connect(mongoDB, { useNewUrlParser: true })
+mongoose.connect(mongoDB, { useNewUrlParser: true, useCreateIndex: true })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
@@ -44,8 +45,8 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use('/', routes)
-// app.use('/signin', routes)
+app.use('/', index)
+app.use('/blog', blog)
 
 app.use((err, req, res, next) => {
   res.status(500).json(err);

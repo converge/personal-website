@@ -194,3 +194,71 @@ footer {
     color: #111213;
   }
 }
+
+
+@media (min-width: 600px) {
+  .form-main {
+    margin-top: 60px;
+    margin-bottom: 50px;
+    font-size: 18px;
+    text-align: left;
+    width: 600px;
+  }
+
+  .form-sending {
+    margin-left: 30px;
+    margin-bottom: 10px;
+  }
+
+  .form-sending.success {
+    color: rgb(13, 214, 90);
+  }
+  
+  .form-sending.sending {
+    color: #f2da34;
+  }
+
+  .form-sending.error {
+    color: #f23434;
+  }
+
+  .form-item input[type='text'], 
+  .form-item input[type='email'],
+  .form-item textarea {
+    width: 250px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding: 5px;
+  }
+
+  .form-item textarea {
+    width: 550px;
+    height: 260px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+
+  .form-item button {
+    margin-left: 30px;
+    background-color: #f2da34;
+    text-transform: uppercase;
+    border: 0;
+    width: 200px;
+    height: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .form-item button:hover {
+    color: #ffffff;
+    background-color: #000000;
+  }
+  .form-item button:active {
+    background-color: #464646;
+  }
+  .field-validation {
+    margin: 0 0 10px 30px;
+    color: rgb(252, 21, 98);
+  }
+}

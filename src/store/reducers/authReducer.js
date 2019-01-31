@@ -30,6 +30,5 @@ const authReducer = (state=initialState, action) => {
       return state
   }
 }
-console.log('delete me')
 
 export default authReducer

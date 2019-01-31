@@ -1,5 +1,4 @@
 import React from 'react'
-import './index.css'
 import api from '../../services/api'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 
@@ -9,7 +8,7 @@ const EmailForm = () => (
       <section>
         <p className="title-bar">CONTACT ME</p>
       </section>
-      <div className="email-form">
+      <div className="form-main">
 
         <Formik
           initialValues={{
@@ -61,26 +60,26 @@ const EmailForm = () => (
           }}
           render={x => (
             <Form>
-              <div className="email-item">
+              <div className="form-item">
                 <Field name='name' type='text' placeholder='Name' />
               </div>
-              <div className="email-item">
+              <div className="form-item">
                 <Field name='email' type='email' placeholder='E-mail' />
               </div>
-              <div className="email-item">
+              <div className="form-item">
                 <Field name='subject' type='text' placeholder='Subject' />
               </div>
-              <div className="email-item">
+              <div className="form-item">
                 <Field component='textarea' name='msg' placeholder='Your message' />
               </div>
               <ErrorMessage name='name' className='field-validation' component='div' />
               <ErrorMessage name='email' className='field-validation' component='div' />
               <ErrorMessage name='subject' className='field-validation' component='div' />
               <ErrorMessage name='msg' className='field-validation' component='div' />
-              <div className={`email-sending ${x.status ? x.status.css : ''}`}>
+              <div className={`form-sending ${x.status ? x.status.css : ''}`}>
                 {x.status ? x.status.success : ''}
               </div>
-              <div className="email-item">
+              <div className="form-item">
                 <button type='submit' disabled={x.isSubmitting}>Submit</button>
               </div>
             </Form>

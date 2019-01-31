@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
+import { Switch, Route } from 'react-router-dom'
 import './base.css'
 import profilePic from '../../imgs/profile_pic.png'
-import EmailForm from '../EmailForm';
-import Blog from '../Blog'
+import AsideContent from '../AsideContent'
 
 export default class Base extends Component {
 
@@ -59,29 +59,13 @@ export default class Base extends Component {
           </header>
 
           <aside>
-          <Blog/>
-            <div className="content-block social-area">
-              <section>
-                <p className="title-bar">SOCIAL NETWORKS</p>
-              </section>
-              <div className="single-line">
-                <ul>
-                  <li>
-                    <a href="https://github.com/converge">github.com/converge</a>
-                  </li>
-                  <li>
-                    <a href="https://www.linkedin.com/in/joao-paulo-vanzuita/" >LinkedIn</a>
-                  </li>
-                  <li>
-                    <a href="https://twitter.com/joao_o">Twitter</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <EmailForm/>
+            <AsideContent/>
+            <Switch>
+              {/* I stopped here :) */}
+              {/* <Route path='' component={}/> */}
+            </Switch>
           </aside>
           <footer>
-            
           </footer>
         </div>
       </Fragment >

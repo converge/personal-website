@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import api from '../../services/api'
+import { Link } from 'react-router-dom'
 import './blog.css'
+
 
 const data = [
   { id: 1, title: 'teste1', author: 'jp', createdAt: '2019-01-01', content: 'abc abc' },
@@ -13,17 +16,21 @@ export default class Blog extends Component {
     posts: []
   }
 
-  componentDidMount = () => {
-    this.setState({
-      posts: data
-    })
+  componentDidMount = async () => {
+    const response = await api.get('/blog/posts')
+    if (response.status === 200) {
+      this.setState({
+        posts: response.data
+      })
+    }
   }
 
   render() {
     let blogPosts = this.state.posts.map(item => {
-      console.log('d ', item)
       return (
-        <li key={item.id}>{item.title}</li>
+        <ul key={item._id}>
+        <li key={item._id}><Link to={item.slug}>{item.title}</Link></li>
+        </ul>
       )}
     )
   return(
@@ -32,9 +39,7 @@ export default class Blog extends Component {
         <p className="title-bar">BLOG</p>
       </section>
       <div className="blog-posts">
-        <ul>
           {blogPosts}
-        </ul>
       </div>
       </div>
     )
