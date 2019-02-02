@@ -45,14 +45,15 @@ router.post('/signup', (req, res) => {
 })
 
 router.post('/signin', (req, res, redirect) => {
-  passport.authenticate('local', (err, user, info) => {
-    console.log('user: ', user)
+  passport.authenticate('local', (err, user) => {
     if (err) {
       console.log(err)
       return res.status(401).json(err);
     }
     if (user) {
-      redirect()
+      req.logIn(user, (err) => {
+        redirect()
+      });
       return res.status(200).json('logged in!')
     }
   })(req, res, redirect)
