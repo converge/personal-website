@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import EmailForm from '../EmailForm';
-import Blog from '../Blog'
+import BlogPosts from '../Blog/posts'
+
 class AsideContent extends Component {
 
   render() {
     return (
       <div>
-        <Blog/>
+        <BlogPosts/>
             <div className="content-block social-area">
               <section>
                 <p className="title-bar">SOCIAL NETWORKS</p>

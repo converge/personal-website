@@ -22,7 +22,6 @@ router.post('/signup', (req, res) => {
       console.log('ja existe')
       return res.status(401).json('Email already exists')
     } else {
-      console.log('criando')
       const newUser = new User({
         name,
         email,

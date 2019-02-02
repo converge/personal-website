@@ -3,7 +3,6 @@ module.exports = {
     if (req.isAuthenticated()) {
       return next();
     }
-    console.log('error_msg', 'Please log in to view that resource');
-    console.log('/admin <---');
+    console.log('user not authenticated <-');
   }
 }

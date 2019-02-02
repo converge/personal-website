@@ -12,7 +12,7 @@ module.exports = function(passport) {
         email: email
       }).then(user => {
         if (!user) {
-          return done(null, false, { message: 'That email is not registered' });
+          return done(null, false, { message: 'That email is not registered' })
         }
 
         // Match password
@@ -23,18 +23,21 @@ module.exports = function(passport) {
           } else {
             return done(null, false, { message: 'Password incorrect' });
           }
-        });
-      });
+        })
+      })
     })
-  );
+  )
 
   passport.serializeUser(function(user, done) {
+    console.log('ok')
     done(null, user.id);
   });
 
   passport.deserializeUser(function(id, done) {
+    let x = User.findById(id)
+    console.log('XXX: ', x)
     User.findById(id, function(err, user) {
       done(err, user);
-    });
-  });
-};
+    })
+  })
+}

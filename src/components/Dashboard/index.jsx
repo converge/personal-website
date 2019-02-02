@@ -3,7 +3,7 @@ import { Link, Switch, Route } from 'react-router-dom'
 import { connect } from "react-redux";
 import { signOut } from "../../store/actions/authActions";
 import CreatePost from '../Blog/create';
-import Blog from '../Blog';
+import BlogPosts from '../Blog/posts';
 
 class Dashboard extends Component {
 
@@ -19,7 +19,7 @@ class Dashboard extends Component {
         </p>
         <p>Users</p>
         <p>Blog Posts</p>
-        <Blog/>
+        <BlogPosts/>
         <Link to="/admin/blog/create">Create Blog Post</Link>
         <Switch>
           <Route path='/admin/blog/create' component={CreatePost} />

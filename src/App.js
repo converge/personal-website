@@ -3,7 +3,6 @@ import { BrowserRouter } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import './App.css';
 import Routes from './components/Routes'
-import Dashboard from './components/Dashboard'
 
 class App extends Component {
   render() {

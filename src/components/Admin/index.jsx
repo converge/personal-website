@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route, Link } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signIn } from '../../store/actions/authActions'
 import Dashboard from '../Dashboard'

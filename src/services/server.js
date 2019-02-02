@@ -1,17 +1,14 @@
 require("dotenv").config();
-const express = require('express')
-const cors = require('cors')
-const mongoose = require('mongoose')
-// to generate random string
-const index = require('./routes/index')
 const blog = require('./routes/blog')
-
-const passport = require('passport')
 const bodyParser = require('body-parser')
-const session = require('express-session');
-const mongoDB = process.env.MONGODB;
-
+const cors = require('cors')
+const express = require('express')
 const app = express()
+const mongoDB = process.env.MONGODB;
+const mongoose = require('mongoose').set('debug', true);
+const passport = require('passport')
+const user = require('./routes/user')
+const session = require('express-session');
 
 require('./passportConfig')(passport);
 
@@ -45,7 +42,7 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use('/', index)
+app.use('/user', user)
 app.use('/blog', blog)
 
 app.use((err, req, res, next) => {

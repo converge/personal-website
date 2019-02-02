@@ -1,16 +1,16 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
-import './base.css'
+import '../Base/base.css'
 import profilePic from '../../imgs/profile_pic.png'
-import AsideContent from '../AsideContent'
+import PostContent from '../Blog/postContent'
 
-export default class Base extends Component {
+export default class BlogPost extends Component {
 
   render() {
     return (
       <Fragment>
         <div className="container">
-          <header>
+        <header>
             <div className="content-block profile-pic-area">
               <img src={profilePic} alt='Profile' />
             </div>
@@ -19,7 +19,7 @@ export default class Base extends Component {
                 <p className="title-bar">PROFILE</p>
               </section>
               <p className="leftbar-text">
-                I'm Brazilian, 35 years old, passionate about technology
+                (blog)I'm Brazilian, 35 years old, passionate about technology
                 since my teenage years and curious about future developments.
             </p>
               <p className="leftbar-text">
@@ -59,7 +59,7 @@ export default class Base extends Component {
           </header>
 
           <aside>
-              <Route component={AsideContent} />
+              <Route component={PostContent} />
           </aside>
           <footer>
           </footer>

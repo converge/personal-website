@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
-import { connect } from 'react-redux'
-import { signUp } from '../../store/actions/authActions'
+import api from '../../services/api'
 
 class SignUpForm extends Component {
 
-  handleSubmit = (values, actions) => {
+  handleSubmit = async (values, actions) => {
     actions.setSubmitting(false)
     const credentials = {
       name: values.name,
@@ -13,8 +12,26 @@ class SignUpForm extends Component {
       password: values.password,
       password2: values.password2
     }
-    // call redux sending credentials and anon. function to load next route
-    this.props.signUp(credentials, () => this.props.history.push('/admin'))
+
+    let response = await api.post('/user/signup', credentials)
+    if (response.status === 200) {
+      // reset form
+      values.name = ''
+      values.email = ''
+      values.password = ''
+      values.password2 = ''
+      actions.resetForm(values)
+      actions.setStatus({
+        success: 'New user created !',
+        css: 'success'
+      })
+      
+    } else {
+      actions.setStatus({
+        success: 'Something went wrong !',
+        css: 'error'
+      })
+    }
   }
 
   render() {
@@ -59,12 +76,15 @@ class SignUpForm extends Component {
                   <Field name='password2' type='password' placeholder='Password 2' />
                 </div>
                 <div className='login-item'>
-                  <button type='submit' disabled={x.isSubmitting}>SignUp</button>
+                  <button type='submit'>SignUp</button>
                 </div>
                 <ErrorMessage name='name' className='field-validation' component='div' />
                 <ErrorMessage name='email' className='field-validation' component='div' />
                 <ErrorMessage name='password' className='field-validation' component='div' />
                 <ErrorMessage name='password2' className='field-validation' component='div' />
+                <div className={`form-sending ${x.status ? x.status.css : ''}`}>
+                  {x.status ? x.status.success : ''}
+                </div>
               </Form>
             </div>
           )}
@@ -74,14 +94,4 @@ class SignUpForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return state
-}
-
-const mapDispathToProps = (dispatch) => {
-  return {
-    signUp: (credentials, redirect) => dispatch(signUp(credentials, redirect))
-  }
-}
-
-export default connect(mapStateToProps, mapDispathToProps)(SignUpForm)
+export default SignUpForm

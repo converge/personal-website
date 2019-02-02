@@ -5,3 +5,21 @@
   margin-top: 35px;
   text-align: left;
 }
+
+.blog-title {
+  margin-top: 50px;
+  font-size: 1em;
+  font-weight: bold;
+  background: #f2da34;
+  width: 100%;
+  padding: 15px;
+}
+
+.content-blog-block {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: #fff;
+  justify-content: flex-start;
+  padding: 20px;
+}

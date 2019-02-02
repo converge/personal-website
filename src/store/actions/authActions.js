@@ -4,15 +4,9 @@ export const signInError = (errors) => {
   return { type: 'SIGNIN_ERROR', errors }
 }
 
-export const signUp = (credentials, redirect) => async dispatch => {
-  console.log('sign up action ', credentials)
-  let response = await api.post('/signup', credentials)
-  
-}
-
 export const signIn = (credentials, redirect) => async dispatch => {
   console.log('signin...')
-  let response = await api.post('/signin', credentials)
+  let response = await api.post('/user/signin', credentials)
   console.log('code: ', response.status)
   if (response.status === 200) {
     let { userInfo } = response.data
