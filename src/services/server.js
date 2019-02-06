@@ -12,15 +12,6 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useCreateIndex: true })
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.log(err));
 
-const OktaJwtVerifier = require('@okta/jwt-verifier');
-const oktaJwtVerifier = new OktaJwtVerifier({
-  issuer: process.env.OKTA_ISSUER,
-  clientId: process.env.OKTA_CLIENT_ID,
-  assertClaims: {
-    aud: 'api://default',
-  },
-});
-
 // parse form into json
 // necessary because we re working with JSON objects,
 // and Express need to know how to parse/work with JSON files
@@ -47,6 +38,4 @@ app.use((err, req, res, next) => {
   })
 })
 
-const PORT = 3007
-
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`))
+app.listen(process.env.PORT, () => console.log(`Server listening on port ${process.env.PORT}`))
