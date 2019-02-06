@@ -1,8 +1,7 @@
+import api from '../../services/api';
 import React, { Component } from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import '../Base/base.css'
-import api from '../../services/api';
-
 
 class CreatePost extends Component {
 

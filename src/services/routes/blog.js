@@ -2,9 +2,9 @@ require('dotenv').config()
 const express = require('express')
 const router = express.Router()
 const Blog = require('../../models/Blog')
-const { ensureAuthenticated } = require('../auth')
+const authenticationRequired = require('./authenticationRequired')
 
-router.post('/create', async (req, res) => {
+router.post('/create', authenticationRequired, async (req, res) => {
   const { title, category, content } = req.body
   const Post = new Blog({title: title, category: category, content: content})
   try {
@@ -18,7 +18,7 @@ router.post('/create', async (req, res) => {
   }
 })
 
-router.get('/posts', ensureAuthenticated, async (req, res) => {
+router.get('/posts', async (req, res) => {
   let blog
   try {
     blog = await Blog.find().limit(5).sort({createdAt: -1})

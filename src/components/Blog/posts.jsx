@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
 import api from '../../services/api'
 import { Link } from 'react-router-dom'
+import { withAuth } from '@okta/okta-react';
 import './blog.css'
 
-export default class Blog extends Component {
+class Blog extends Component {
 
   state = {
     posts: []
   }
 
   componentDidMount = async () => {
-    const response = await api.get('/blog/posts')
+    const response = await api.get('/blog/posts', {
+      headers: {
+        Authorization: 'Bearer ' + await this.props.auth.getAccessToken()
+      }
+    })
     if (response.status === 200) {
       this.setState({
         posts: response.data
@@ -39,3 +44,5 @@ export default class Blog extends Component {
     )
   }
 }
+
+export default withAuth(Blog)

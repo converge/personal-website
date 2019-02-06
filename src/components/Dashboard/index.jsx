@@ -1,25 +1,49 @@
 import React, { Component } from 'react'
 import { Link, Switch, Route } from 'react-router-dom'
-import { connect } from "react-redux";
-import { signOut } from "../../store/actions/authActions";
 import CreatePost from '../Blog/create';
 import BlogPosts from '../Blog/posts';
+import { withAuth } from '@okta/okta-react';
 
 class Dashboard extends Component {
 
-  render() {
-    console.log('authenticated ? ', this.props.auth.isAuthenticated)
+  constructor(props) {
+    super(props);
+    // this.state = {
+    //   authenticated: null,
+    //   userinfo: null
+    // };
+  }
+
+  componentDidMount = async () => {
+    this.checkAuthentication();
+  }
+
+  componentDidUpdate = async () => {
+    this.checkAuthentication();
+  }
+
+  login = async () => {
+    this.props.auth.login('/');
+  }
+
+  logout = async () => {
+    // Redirect to '/' after logout
+    this.props.auth.logout('/');
+  }
+
+  render () {
     return (
       <div>
+        <div id="top_bar">
+          <ul>
+            <button onClick={this.login}>Login</button>
+            <button onClick={this.logout}>Logout</button>
+          </ul>
+        </div>
         <h1>Dashboard</h1>
-        <p>
-          <span onClick={() => this.props.signOut(() => this.props.history.push('/admin'))}>
-            Logout
-          </span>
-        </p>
         <p>Users</p>
         <p>Blog Posts</p>
-        <BlogPosts/>
+        <BlogPosts />
         <Link to="/admin/blog/create">Create Blog Post</Link>
         <Switch>
           <Route path='/admin/blog/create' component={CreatePost} />
@@ -29,14 +53,4 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return state
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    signOut: (redirect) => dispatch(signOut(redirect)),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default withAuth(Dashboard)

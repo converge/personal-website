@@ -23,3 +23,20 @@
   justify-content: flex-start;
   padding: 20px;
 }
+
+
+/* https://css-tricks.com/custom-list-number-styling/ */
+.markdown ol {
+  list-style: none;
+  counter-reset: list-counter;
+}
+
+.markdown ol li {
+  counter-increment: list-counter;
+  font-style: italic;
+}
+
+.markdown ol li::before {
+  content: counter(list-counter) ". ";
+  font-style: initial;
+}

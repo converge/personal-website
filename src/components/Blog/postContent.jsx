@@ -1,5 +1,8 @@
-import React, { Component } from 'react'
 import api from '../../services/api'
+import React, { Component } from 'react'
+import ReactMarkdown from "react-markdown";
+import Prism from "prismjs";
+import './prism.css'
 
 class PostContent extends Component {
 
@@ -7,7 +10,12 @@ class PostContent extends Component {
     posts: []
   }
 
+  componentDidUpdate = () => {
+    Prism.highlightAll();
+  }
+
   componentDidMount = async () => {
+    Prism.highlightAll();
     const postTitle = this.props.match.params.postTitle
     const response = await api.get('/blog/post', {
       params: {
@@ -29,7 +37,7 @@ class PostContent extends Component {
           <p>{`Category: ${this.state.posts.category}`}</p>
         </section>
         <div className="blog-posts">
-          {this.state.posts.content}
+          <ReactMarkdown className="markdown" source={this.state.posts.content} />
         </div>
       </div>
     )
