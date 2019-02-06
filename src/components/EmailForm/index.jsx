@@ -40,7 +40,7 @@ const EmailForm = () => (
               css: 'sending'
             })
             actions.setSubmitting(false)
-            const response = await api.post('/user/send_email', {
+            const response = await api.post('/email/send_email', {
               name: values.name,
               email: values.email,
               subject: values.subject,
