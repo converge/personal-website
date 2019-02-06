@@ -27,14 +27,16 @@ router.post('/send_email', (req, res) => {
       })
       let mailOptions = {
         from:  process.env.EMAIL_FROM,
-        to: process.env.EMAIL_FROMEMAIL_TO,
+        to: process.env.EMAIL_TO,
         replyTo: `${req.body.email}`,
         subject: `${req.body.subject}`,
         html: htmlEmail
       }
       transporter.sendMail(mailOptions, (error, info) => {
+        console.log(process.env)
         if (error) {
-          return res.status(500).send('Email sent')
+          console.log('email send error: ', error)
+          return res.status(500).send(`Error sending email ${error}`)
         }
         console.log('Message sent: %s', info.messageId)
         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info))
