@@ -34,9 +34,31 @@ class Blog extends Component {
     }
   }
 
+  
+
+  handleDeletePost = (id) => {
+    console.log('delete', id)
+  }
+
   render() {
     let blogPosts = this.state.posts.map(item => {
       const postLink = `/blog/${item.slug}`
+      if (this.props.isAdmin) {
+        return (
+          <ul key={item._id}>
+            <li key={item._id}>
+              <Link to={postLink}>{item.title}</Link>
+              <Link to={`/admin/blog/editcreate/${item}`}>--EDIT--</Link>
+              <button onClick={() => this.handleEditPost(item._id)} className="edit-post">
+                Edit
+              </button>
+              <button onClick={() => this.handleDeletePost(item._id)} className="delete-post">
+                Delete
+              </button>
+            </li>
+          </ul>
+        )
+      }
       return (
         <ul key={item._id}>
           <li key={item._id}><Link to={postLink}>{item.title}</Link></li>
@@ -48,7 +70,7 @@ class Blog extends Component {
     return (
       <div className="content-block blog-area" >
         <section>
-          <p className="title-bar-content">BLOG</p>
+          <p className="title-bar">BLOG</p>
         </section>
         <div style={this.state.spinnerClass}>
           <HashLoader

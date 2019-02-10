@@ -7,9 +7,9 @@ import { Security, ImplicitCallback } from '@okta/okta-react';
 require("dotenv").config();
 
 const config = {
-  issuer: 'https://dev-368817.oktapreview.com/oauth2/default',
+  issuer: process.env.REACT_APP_OKTA_ISSUER,
   redirect_uri: window.location.origin + '/implicit/callback',
-  client_id: '0oaj8pkvaznnGnZa20h7'
+  client_id: process.env.REACT_APP_OKTA_CLIENT_ID
 }
 
 class Routes extends Component {

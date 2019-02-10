@@ -16,7 +16,7 @@ export default class Base extends Component {
             </div>
             <div className="content-block profile-info-area">
               <section>
-                <p className="title-bar">PROFILE</p>
+                <p className="title-bar-noeffect">PROFILE</p>
               </section>
               <p className="leftbar-text">
                 I'm Brazilian, 35 years old, passionate about technology
@@ -29,7 +29,7 @@ export default class Base extends Component {
             </div>
             <div className="content-block about-me-area">
               <section>
-                <p className="title-bar">ABOUT ME</p>
+                <p className="title-bar-noeffect">ABOUT ME</p>
               </section>
               <p className="leftbar-text">
                 I see work as an activity to make the planet we live on better.
@@ -50,7 +50,7 @@ export default class Base extends Component {
             </div>
             <div className="content-block projects-area">
               <section>
-                <p className="title-bar">SIDE PROJECTS</p>
+                <p className="title-bar-noeffect">SIDE PROJECTS</p>
               </section>
               <p className="single-line">
                 github.com/converge

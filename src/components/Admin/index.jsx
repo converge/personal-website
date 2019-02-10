@@ -42,7 +42,6 @@ class Admin extends Component {
     if (this.state.authenticated === null) return null
     return (
       <div>
-        <h1>ok</h1>
         <Switch>
           <Route path='/admin/signin' component={SignIn} />
           <Route path='/admin/signup' component={SignUp} />

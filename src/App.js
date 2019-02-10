@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import Routes from './components/Routes'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faPlusCircle, faListOl, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 
 class App extends Component {
@@ -23,4 +24,4 @@ class App extends Component {
 
 export default App;
 
-library.add(fab)
+library.add(fab, faPlusCircle, faListOl, faTrashAlt, faEdit)

@@ -51,8 +51,19 @@
   align-self: center;
 }
 
+.edit-post {
+  width: 60px;
+}
+
+.delete-post {
+  width: 60px;
+  color: #fff;
+  background-color: #FF2C55;
+}
+
 @media (min-width: 1024px) {
   .blog-posts a {
     color: #000;
   }
 }
+

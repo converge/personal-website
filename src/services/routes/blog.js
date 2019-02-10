@@ -42,4 +42,24 @@ router.get('/post', async (req, res) => {
   }
 })
 
+router.get('/editpost', async (req, res) => {
+  let blog
+  try {
+    blog = await Blog.findOne({_id: req.query.id})
+    return res.json(blog)
+  } catch (err) {
+    return res.json(err)
+  }
+})
+
+router.get('/gettotalposts', async (req, res) => {
+  let blog
+  try {
+    blog = await Blog.find().countDocuments()
+    return res.json(blog)
+  } catch (err) {
+    return res.json(err)
+  }
+})
+
 module.exports = router

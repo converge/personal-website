@@ -60,11 +60,32 @@
 }
 
 .title-bar {
-  margin-top: 50px;
+  margin-top: 40px;
+  margin-left: 40px;
   font-size: 1em;
   font-weight: bold;
-  background: #f2da34;
+  background-color: #f2da34;
+  border-radius: 20px;
   width: 300px;
+  text-align: center;
+  padding: 7px;
+  border: 1px;
+  border-style: solid;
+  border-color: #E8E8E8;
+  box-shadow: 0px 5px 5px #E8E8E8;
+}
+
+.title-bar-noeffect {
+  margin-top: 40px;
+  margin-left: 40px;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: #f2da34;
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+  padding: 7px;
+  color: #000;
 }
 
 .title-bar-content {

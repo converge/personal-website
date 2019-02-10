@@ -4,7 +4,27 @@ import { Formik, Field, Form, ErrorMessage } from 'formik'
 import '../Base/base.css'
 
 class CreatePost extends Component {
+
+  // state = {
+  //   title: '',
+  //   category: '',
+  //   content: ''
+  // }
   
+  // componentDidMount = async () => {
+  //   const { id } = this.props.match.params
+  //   console.log(id)
+  //   const response = await api.get('/blog/editpost', {
+  //     params: {
+  //       id: id
+  //     }
+  //   })
+  //   if (response.status === 200) {
+  //     this.setState({
+  //       title: response.data.title
+  //     })
+  //   }
+  // }
 
   handleSubmit = async (values, actions) => {
     actions.setSubmitting(false)
