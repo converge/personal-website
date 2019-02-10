@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
-import './App.css';
 import Routes from './components/Routes'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import './App.css';
 
 class App extends Component {
   render() {
@@ -20,3 +22,5 @@ class App extends Component {
 }
 
 export default App;
+
+library.add(fab)

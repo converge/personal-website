@@ -14,6 +14,7 @@ router.post('/create', authenticationRequired, async (req, res) => {
     if (err.name === 'MongoError' && err.code === 11000) {
       return res.sendStatus(409)
     }
+    console.log(err)
     return res.sendStatus(500)
   }
 })

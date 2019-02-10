@@ -6,12 +6,15 @@ import { withAuth } from '@okta/okta-react';
 
 class Dashboard extends Component {
 
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   authenticated: null,
-    //   userinfo: null
-    // };
+  state = {
+    authenticated: null
+  }
+
+  checkAuthentication = async () => {
+    const authenticated = await this.props.auth.isAuthenticated();
+    if (authenticated !== this.state.authenticated) {
+      this.setState({ authenticated });
+    }
   }
 
   componentDidMount = async () => {

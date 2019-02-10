@@ -1,3 +1,4 @@
+
 /*
  * areas
  */
@@ -6,9 +7,9 @@
   align-content: center;
 }
 
-
 .profile-pic-area img {
-  width: 75%;
+  margin-top: 25px;
+  width: 55%;
 }
 
 .profile-info-area {
@@ -18,7 +19,6 @@
 .about-me-area {
   grid-area: about-me;
 }
-
 .blog-area {
   grid-area: blog;
 }
@@ -46,6 +46,8 @@
 
 .content-block img {
   object-fit: contain;
+  height: 225px;
+  align-self: center;
 }
 
 .content-block ul {
@@ -54,7 +56,7 @@
 }
 
 .content-block li {
-  margin: 15px;
+  margin: 25px;
 }
 
 .title-bar {
@@ -65,7 +67,21 @@
   width: 300px;
 }
 
+.title-bar-content {
+  margin-top: 35px;
+  font-size: 1em;
+  font-weight: bold;
+  background: #f2da34;
+  width: 300px;
+}
+
 .content-block section .title-bar {
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+.content-block section .title-bar-content {
   padding: 10px;
   text-align: center;
   color: black;
@@ -117,16 +133,66 @@
   margin-bottom: 50px;
 }
 
+/*
+ * FORM
+ */
+ .form-main {
+  margin-top: 60px;
+  margin-bottom: 50px;
+  font-size: 18px;
+  text-align: left;
+  width: 100%;
+}
+.form-sending {
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+.form-sending.success {
+  color: rgb(13, 214, 90);
+}
+.form-sending.sending {
+  color: #f2da34;
+}
+.form-sending.error {
+  color: #f23434;
+}
+.form-item input[type='text'], .form-item input[type='email'], .form-item textarea {
+  width: 250px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  padding: 5px;
+}
+.form-item textarea {
+  width: 290px;
+  height: 260px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.form-item button {
+  margin-left: 30px;
+  background-color: #f2da34;
+  text-transform: uppercase;
+  border: 0;
+  width: 200px;
+  height: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.form-item button:hover {
+  color: #ffffff;
+  background-color: #000000;
+}
+.form-item button:active {
+  background-color: #464646;
+}
+
 aside .container {
   display: grid;
   grid-template: 
     "blog"
     "social"
     "contact-me"
-}
-
-header {
-  grid-column: 2;
 }
 
 aside {
@@ -139,65 +205,29 @@ footer {
 }
 
 /*
- * tablet and mobile landscape
+ * BREAKPOINTS
  */
-@media (min-width: 600px) {
-  .profile-pic-area img {
-    object-fit: contain;
+
+ @media (min-width: 450px) {
+  .form-item input[type='text'], .form-item input[type='email'], .form-item textarea {
+    width: 370px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding: 5px;
   }
-  .job-desc {
-    padding-left: 20px;
+  .form-item textarea {
+    width: 365px;
+    height: 260px;
+    border: 1px solid #ccc;
+    padding: 10px;
   }
-}
+ }
 
 /*
- * desktop
+ * tablet and mobile landscape
  */
-@media (min-width: 1450px) {
-  .container {
-    display: grid;
-    grid-template-columns: 494px 954px;
-    background-color: #111213;
-  }
-
-  header {
-    display: grid;
-    grid-column: 1;
-    grid-template:
-      "profile-pic"
-      "profile-info"
-      "about-me"
-      "projects"
-  }
-
-  aside {
-    display: grid;
-    grid-column: 2;
-    grid-template: 
-      "blog"
-      "social"
-      "contact-me"
-  }
-
-  footer {
-    display: grid;
-    grid-column: 2;
-    /* grid-template:  */
-    padding-bottom: 40px;
-      
-  }
-
-  .profile-pic-area {
-    justify-content: start;
-  }
-  .blog-area, .social-area, .contact-me-area {
-    background-color: #f9f9f9;
-    color: #111213;
-  }
-}
-
-
-@media (min-width: 600px) {
+@media (min-width: 640px) {
   .form-main {
     margin-top: 60px;
     margin-bottom: 50px;
@@ -205,41 +235,32 @@ footer {
     text-align: left;
     width: 600px;
   }
-
   .form-sending {
     margin-left: 30px;
     margin-bottom: 10px;
   }
-
   .form-sending.success {
     color: rgb(13, 214, 90);
   }
-  
   .form-sending.sending {
     color: #f2da34;
   }
-
   .form-sending.error {
     color: #f23434;
   }
-
-  .form-item input[type='text'], 
-  .form-item input[type='email'],
-  .form-item textarea {
-    width: 250px;
+  .form-item input[type='text'], .form-item input[type='email'], .form-item textarea {
+    width: 300px;
     margin-left: 30px;
     margin-bottom: 10px;
     font-size: 18px;
     padding: 5px;
   }
-
   .form-item textarea {
     width: 550px;
     height: 260px;
     border: 1px solid #ccc;
     padding: 10px;
   }
-
   .form-item button {
     margin-left: 30px;
     background-color: #f2da34;
@@ -250,7 +271,6 @@ footer {
     font-weight: 600;
     letter-spacing: 1px;
   }
-
   .form-item button:hover {
     color: #ffffff;
     background-color: #000000;
@@ -261,5 +281,104 @@ footer {
   .field-validation {
     margin: 0 0 10px 30px;
     color: rgb(252, 21, 98);
+  }
+  .profile-pic-area img {
+    object-fit: contain;
+  }
+  .job-desc {
+    padding-left: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    display: grid;
+    grid-template-columns: 340px 684px;
+    background-color: #111213;
+  }
+  
+  header {
+    display: grid;
+    grid-column: 1;
+    grid-template:
+    "profile-pic"
+    "profile-info"
+    "about-me"
+    "projects"
+  }
+  
+  aside {
+    display: grid;
+    grid-column: 2;
+    grid-template: 
+    "blog"
+    "social"
+    "contact-me"
+  }
+  
+  footer {
+    display: grid;
+    grid-column: 2;
+    padding-bottom: 40px;
+    
+  }
+  
+  .profile-pic-area {
+    justify-content: start;
+  }
+  .blog-area, .social-area, .contact-me-area {
+    background-color: #f9f9f9;
+    color: #111213;
+  }
+  .content-block img {
+    object-fit: contain;
+    width: 100%;
+    align-self: center;
+  }
+  .blog-area, .social-area, .contact-me-area {
+    background-color: #f9f9f9;
+    color: #111213;
+  }
+}
+
+@media (min-width: 1250px) {
+  .container {
+    display: grid;
+    grid-template-columns: 494px 754px;
+    background-color: #111213;
+  }
+  
+  header {
+    display: grid;
+    grid-column: 1;
+    grid-template:
+    "profile-pic"
+    "profile-info"
+    "about-me"
+    "projects"
+  }
+  
+  aside {
+    display: grid;
+    grid-column: 2;
+    grid-template: 
+    "blog"
+    "social"
+    "contact-me"
+  }
+  
+  footer {
+    display: grid;
+    grid-column: 2;
+    padding-bottom: 40px;
+    
+  }
+  
+  .profile-pic-area {
+    justify-content: start;
+  }
+  .blog-area, .social-area, .contact-me-area {
+    background-color: #f9f9f9;
+    color: #111213;
   }
 }

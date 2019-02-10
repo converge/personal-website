@@ -4,6 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik'
 import '../Base/base.css'
 
 class CreatePost extends Component {
+  
 
   handleSubmit = async (values, actions) => {
     actions.setSubmitting(false)

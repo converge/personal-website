@@ -1,0 +1,15 @@
+.social-networks {
+  align-self: center;
+  margin-top: 40px;
+}
+
+.social-networks li {
+  display: inline;
+}
+
+@media (min-width: 1024px) {
+  .social-networks a {
+    color: #000;
+  }
+}
+
