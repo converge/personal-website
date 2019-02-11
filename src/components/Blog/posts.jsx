@@ -34,10 +34,18 @@ class Blog extends Component {
     }
   }
 
-  
-
-  handleDeletePost = (id) => {
-    console.log('delete', id)
+  handleDeletePost = async (id) => {
+    const response = await api.delete(`/blog/deletepost/${id}`)
+    if (response.status === 200) {
+      const activePosts = this.state.posts.filter((posts) => {
+        return (posts._id !== id)
+      })
+      this.setState({
+        posts: activePosts
+      })
+    } else {
+      console.log('unable to delete post!')
+    }
   }
 
   render() {
@@ -45,18 +53,24 @@ class Blog extends Component {
       const postLink = `/blog/${item.slug}`
       if (this.props.isAdmin) {
         return (
-          <ul key={item._id}>
-            <li key={item._id}>
+          <div key={item._id} className="action-buttons">
+            <div className="action-title">
               <Link to={postLink}>{item.title}</Link>
-              <Link to={`/admin/blog/editcreate/${item}`}>--EDIT--</Link>
-              <button onClick={() => this.handleEditPost(item._id)} className="edit-post">
-                Edit
-              </button>
-              <button onClick={() => this.handleDeletePost(item._id)} className="delete-post">
-                Delete
-              </button>
-            </li>
-          </ul>
+            </div>
+            <div className="action-edit-delete">
+              <Link to={`/admin/blog/edit/${item._id}`}>
+                <button className="edit-post">
+                  Edit
+                </button>
+              </Link>
+              <Link to='/admin/blog/list'>
+                {/* arrow function prevent handler to be called on rendering */}
+                <button onClick={() => { this.handleDeletePost(item._id) }} className="delete-post">
+                  Delete
+                </button>
+              </Link>
+            </div>
+          </div>
         )
       }
       return (
@@ -66,7 +80,6 @@ class Blog extends Component {
       )
     }
     )
-    // let spin = (this.state.loading === true) ? 'loading...' : ''
     return (
       <div className="content-block blog-area" >
         <section>

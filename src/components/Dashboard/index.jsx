@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ListPosts from '../Blog/listPosts';
-import EditCreatePost from '../Blog/editCreate';
+import EditPost from '../Blog/edit';
+import createPost from '../Blog/create';
 import DashBoardInfo from '../Dashboard/info'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link, Switch, Route } from 'react-router-dom'
@@ -82,7 +83,8 @@ class Dashboard extends Component {
           </div>
           <div className="right-content">
             <Switch>
-              <Route path='/admin/blog/editcreate/:id' component={EditCreatePost} />
+              <Route path='/admin/blog/edit/:id' component={EditPost} />
+              <Route path='/admin/blog/create' component={createPost} />
               <Route path='/admin/blog/list' component={ListPosts} />
               <Route component={DashBoardInfo} />
             </Switch>

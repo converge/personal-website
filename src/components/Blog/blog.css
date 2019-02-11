@@ -67,3 +67,17 @@
   }
 }
 
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 15px;
+  margin-right: 30px;
+}
+
+.action-edit-delete {
+  justify-self: end;
+}
+
+.action-edit-delete button {
+  margin-left: 10px;
+}
