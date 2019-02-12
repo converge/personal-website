@@ -61,7 +61,6 @@
 
 .title-bar {
   margin-top: 40px;
-  margin-left: 40px;
   font-size: 1em;
   font-weight: bold;
   background-color: #f2da34;
@@ -69,15 +68,11 @@
   width: 300px;
   text-align: center;
   padding: 7px;
-  border: 1px;
-  border-style: solid;
-  border-color: #E8E8E8;
-  box-shadow: 0px 5px 5px #E8E8E8;
 }
 
 .title-bar-noeffect {
   margin-top: 40px;
-  margin-left: 40px;
+  /* margin-left: 40px; */
   font-size: 1em;
   font-weight: bold;
   background-color: #f2da34;
@@ -359,6 +354,12 @@ footer {
   .blog-area, .social-area, .contact-me-area {
     background-color: #f9f9f9;
     color: #111213;
+  }
+  .title-bar {
+    border: 1px;
+    border-style: solid;
+    border-color: #E8E8E8;
+    box-shadow: 0px 5px 5px #E8E8E8;
   }
 }
 
