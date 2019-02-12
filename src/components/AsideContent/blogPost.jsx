@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
-import '../Base/base.css'
 import profilePic from '../../imgs/profile_pic.png'
 import PostContent from '../Blog/postContent'
+import '../Base/style.css'
+import '../Blog/style.css'
 
 export default class BlogPost extends Component {
 
@@ -16,7 +17,7 @@ export default class BlogPost extends Component {
             </div>
             <div className="content-block profile-info-area">
               <section>
-                <p className="title-bar">PROFILE</p>
+                <p className="title-bar-noeffect">PROFILE</p>
               </section>
               <p className="leftbar-text">
                 (blog)I'm Brazilian, 35 years old, passionate about technology
@@ -29,7 +30,7 @@ export default class BlogPost extends Component {
             </div>
             <div className="content-block about-me-area">
               <section>
-                <p className="title-bar">ABOUT ME</p>
+                <p className="title-bar-noeffect">ABOUT ME</p>
               </section>
               <p className="leftbar-text">
                 I see work as an activity to make the planet we live on better.
@@ -50,7 +51,7 @@ export default class BlogPost extends Component {
             </div>
             <div className="content-block projects-area">
               <section>
-                <p className="title-bar">SIDE PROJECTS</p>
+                <p className="title-bar-noeffect">SIDE PROJECTS</p>
               </section>
               <p className="single-line">
                 github.com/converge

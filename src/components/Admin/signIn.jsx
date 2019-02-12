@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Formik, Field, Form } from 'formik'
 import { connect } from 'react-redux'
 import { signIn } from '../../store/actions/authActions'
-import './index.css'
+import './style.css'
 
 class SignInForm extends Component {
 

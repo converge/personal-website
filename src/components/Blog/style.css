@@ -1,31 +1,41 @@
 
 .blog-posts {
   font-size: 0.9em;
-  margin-left: 30px;
-  margin-top: 35px;
+  margin-top: 10px;
   text-align: left;
 }
 
 .blog-title {
-  margin-top: 50px;
+  margin-top: 40px;
   font-size: 1em;
   font-weight: bold;
-  background: #f2da34;
-  width: 100%;
+  background-color: #f2da34;
+  border-radius: 20px;
   padding: 15px;
+  color: #000;
 }
 
 .content-blog-block {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  background-color: #fff;
+  background-color: #111213;
   justify-content: flex-start;
   padding: 20px;
+  color: #fff;
 }
 
+.blog-category {
+  margin: 10px 0 0 10px;
+  font-size: 0.9em;
+}
 
 /* https://css-tricks.com/custom-list-number-styling/ */
+.markdown {
+  display: grid;
+  font-size: 0.8em;
+}
+
 .markdown ol {
   list-style: none;
   counter-reset: list-counter;
@@ -64,6 +74,9 @@
 @media (min-width: 1024px) {
   .blog-posts a {
     color: #000;
+  }
+  .markdown {
+    font-size: 1em;
   }
 }
 

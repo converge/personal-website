@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
-import { Route } from 'react-router-dom'
-import './base.css'
-import profilePic from '../../imgs/profile_pic.png'
 import AsideContent from '../AsideContent'
+import profilePic from '../../imgs/profile_pic.png'
+import { Route } from 'react-router-dom'
+import './style.css'
 
 export default class Base extends Component {
 

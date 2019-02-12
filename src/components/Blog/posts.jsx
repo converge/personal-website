@@ -3,7 +3,7 @@ import api from '../../services/api'
 import { Link } from 'react-router-dom'
 import { withAuth } from '@okta/okta-react';
 import { HashLoader } from 'react-spinners'
-import './blog.css'
+import './style.css'
 
 class Blog extends Component {
 

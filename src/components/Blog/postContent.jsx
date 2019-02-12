@@ -34,7 +34,7 @@ class PostContent extends Component {
       <div className="content-blog-block blog-area" >
         <section>
           <p className="blog-title">{this.state.posts.title}</p>
-          <p>{`Category: ${this.state.posts.category}`}</p>
+          <p className="blog-category">{`Category: ${this.state.posts.category}`}</p>
         </section>
         <div className="blog-posts">
           <ReactMarkdown className="markdown" source={this.state.posts.content} />

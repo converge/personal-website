@@ -1,6 +1,6 @@
 import api from '../../services/api';
 import React, { Component } from 'react'
-import '../Base/base.css'
+import '../Base/style.css'
 import { BlogPostForm } from './blogPostForm'
 
 

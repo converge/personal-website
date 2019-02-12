@@ -1,7 +1,7 @@
 import api from '../../services/api';
 import React, { Component } from 'react'
-import '../Base/base.css'
 import { BlogPostForm } from './blogPostForm'
+import '../Base/style.css'
 
 class CreatePost extends Component {
 

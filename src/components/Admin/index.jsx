@@ -4,7 +4,7 @@ import Dashboard from '../Dashboard'
 import SignIn from './signIn';
 import SignUp from './signUp';
 import { withAuth, SecureRoute } from '@okta/okta-react';
-import './index.css'
+import './style.css'
 
 
 class Admin extends Component {
