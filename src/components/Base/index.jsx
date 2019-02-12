@@ -59,7 +59,7 @@ export default class Base extends Component {
           </header>
 
           <aside>
-              <Route component={AsideContent} />
+            <Route component={AsideContent} />
           </aside>
           <footer>
           </footer>

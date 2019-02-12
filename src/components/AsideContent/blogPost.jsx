@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import profilePic from '../../imgs/profile_pic.png'
 import PostContent from '../Blog/postContent'
+import { Link } from 'react-router-dom'
 import '../Base/style.css'
 import '../Blog/style.css'
 
@@ -11,9 +12,11 @@ export default class BlogPost extends Component {
     return (
       <Fragment>
         <div className="container">
-        <header>
+          <header>
             <div className="content-block profile-pic-area">
-              <img src={profilePic} alt='Profile' />
+              <Link to='/'>
+                <img src={profilePic} alt='Profile' />
+              </Link>
             </div>
             <div className="content-block profile-info-area">
               <section>
@@ -60,7 +63,7 @@ export default class BlogPost extends Component {
           </header>
 
           <aside>
-              <Route component={PostContent} />
+            <Route component={PostContent} />
           </aside>
           <footer>
           </footer>
