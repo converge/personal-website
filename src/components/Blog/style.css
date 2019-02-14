@@ -1,28 +1,32 @@
 
 .blog-posts {
-  font-size: 0.9em;
-  margin-top: 10px;
+  font-size: 1.5em;
   text-align: left;
+}
+
+.blog-posts a {
+  color: #5107cb;
+  font-weight: 300;
 }
 
 .blog-title {
   margin-top: 40px;
   font-size: 1em;
   font-weight: bold;
-  background-color: #f2da34;
+  background-color: #4ce6ac;
   border-radius: 20px;
   padding: 15px;
-  color: #000;
+  color: #fff;
 }
 
 .content-blog-block {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  background-color: #111213;
+  background-color: #f9f9f9;
   justify-content: flex-start;
   padding: 20px;
-  color: #fff;
+  color: #000;
 }
 
 .blog-category {
@@ -33,7 +37,7 @@
 /* https://css-tricks.com/custom-list-number-styling/ */
 .markdown {
   display: grid;
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 
 .markdown ol {
@@ -71,15 +75,6 @@
   background-color: #FF2C55;
 }
 
-@media (min-width: 1024px) {
-  .blog-posts a {
-    color: #000;
-  }
-  .markdown {
-    font-size: 1em;
-  }
-}
-
 .action-buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -93,4 +88,18 @@
 
 .action-edit-delete button {
   margin-left: 10px;
+}
+
+@media (min-width: 1024px) {
+  .blog-posts a {
+    color: #5107cb;
+    font-size: 48px;
+    font-weight: 300;
+  }
+  .markdown {
+    font-size: 0.7em;
+  }
+  .spinner {
+    margin-top: 50px;
+  }
 }

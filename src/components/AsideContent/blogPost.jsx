@@ -3,8 +3,6 @@ import { Route } from 'react-router-dom'
 import profilePic from '../../imgs/profile_pic.png'
 import PostContent from '../Blog/postContent'
 import { Link } from 'react-router-dom'
-import '../Base/style.css'
-import '../Blog/style.css'
 
 export default class BlogPost extends Component {
 

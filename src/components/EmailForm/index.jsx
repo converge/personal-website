@@ -1,6 +1,7 @@
 import React from 'react'
 import api from '../../services/api'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
+import './style.css'
 
 const EmailForm = () => (
   <div>

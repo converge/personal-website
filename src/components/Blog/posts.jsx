@@ -10,11 +10,6 @@ class Blog extends Component {
   state = {
     posts: [],
     loading: true,
-    spinnerClass: {
-      display: 'flex',
-      alignSelf: 'center',
-      marginTop: '80px'
-    }
   }
 
   componentDidMount = async () => {
@@ -29,7 +24,6 @@ class Blog extends Component {
       })
       this.setState({
         loading: false,
-        spinnerClass: { display: 'none' }
       })
     }
   }
@@ -85,7 +79,7 @@ class Blog extends Component {
         <section>
           <p className="title-bar">BLOG</p>
         </section>
-        <div style={this.state.spinnerClass}>
+        <div className="spinner">
           <HashLoader
             className="override"
             sizeUnit={"px"}

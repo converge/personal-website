@@ -1,19 +1,21 @@
-
+.container {
+  background-image: linear-gradient(to right top, #390097, #4503b0, #5107ca, #5e0ce4, #6b12ff);
+}
 /*
  * areas
  */
- .profile-pic-area {
+.profile-pic-area {
   grid-area: profile-pic;
   align-content: center;
 }
 
 .profile-pic-area img {
   margin-top: 25px;
-  width: 55%;
 }
 
 .profile-info-area {
   grid-area: profile-info;
+
 }
 
 .about-me-area {
@@ -39,9 +41,9 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  color: white;
-  background-color: #111213;
-  justify-content: center;
+  color: #4ce6ac;
+  justify-content: start;
+  margin-bottom: 30px;
 }
 
 .content-block img {
@@ -63,7 +65,7 @@
   margin-top: 40px;
   font-size: 1em;
   font-weight: bold;
-  background-color: #f2da34;
+  background-color: #4ce6ac;
   border-radius: 20px;
   width: 300px;
   text-align: center;
@@ -71,30 +73,29 @@
 }
 
 .title-bar-noeffect {
-  margin-top: 40px;
-  /* margin-left: 40px; */
   font-size: 1em;
   font-weight: bold;
-  background-color: #f2da34;
+  background-color: #3c019d;
   border-radius: 20px;
   width: 300px;
   text-align: center;
   padding: 7px;
-  color: #000;
+  margin-top: 30px;
+  color: #fff;
 }
 
 .title-bar-content {
   margin-top: 35px;
   font-size: 1em;
   font-weight: bold;
-  background: #f2da34;
+  background: #4ce6ac;
   width: 300px;
 }
 
 .content-block section .title-bar {
   padding: 10px;
   text-align: center;
-  color: black;
+  color: #fff;
 }
 
 .content-block section .title-bar-content {
@@ -116,9 +117,11 @@
 
 .leftbar-text {
   width: auto;
-  margin-top: 50px;
+  margin-top: 35px;
   margin-left: 25px;
   margin-right: 25px;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .leftbar-text-single {
@@ -128,8 +131,10 @@
 }
 
 .single-line {
-  margin-top: 50px;
+  margin-top: 30px;
   text-align: center;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .single-line-email {
@@ -187,7 +192,7 @@
 }
 .form-item button {
   margin-left: 30px;
-  background-color: #f2da34;
+  background-color: #4ce6ac;
   text-transform: uppercase;
   border: 0;
   width: 200px;
@@ -218,6 +223,7 @@ aside {
 
 footer {
   grid-column: 3;
+  height: 10px;
 }
 
 /*
@@ -279,7 +285,7 @@ footer {
   }
   .form-item button {
     margin-left: 30px;
-    background-color: #f2da34;
+    background-color: #4ce6ac;
     text-transform: uppercase;
     border: 0;
     width: 200px;
@@ -301,8 +307,12 @@ footer {
   .profile-pic-area img {
     object-fit: contain;
   }
+  
   .job-desc {
     padding-left: 20px;
+  }
+  footer {
+    height: 0px;
   }
 }
 
@@ -310,7 +320,7 @@ footer {
   .container {
     display: grid;
     grid-template-columns: 340px 684px;
-    background-color: #111213;
+    background-image: linear-gradient(to right top, #390097, #4503b0, #5107ca, #5e0ce4, #6b12ff);
   }
   
   header {
@@ -339,17 +349,12 @@ footer {
     
   }
   
-  .profile-pic-area {
-    justify-content: start;
+  .profile-info-area, .profile-pic-area, .about-me-area, .projects-area {
+    margin-bottom: 0;
   }
   .blog-area, .social-area, .contact-me-area {
     background-color: #f9f9f9;
     color: #111213;
-  }
-  .content-block img {
-    object-fit: contain;
-    width: 100%;
-    align-self: center;
   }
   .blog-area, .social-area, .contact-me-area {
     background-color: #f9f9f9;
@@ -361,13 +366,24 @@ footer {
     border-color: #E8E8E8;
     box-shadow: 0px 5px 5px #E8E8E8;
   }
+  .content-block {
+    margin-bottom: 0;
+  }
+  .content-block img {
+    height: 100%;
+  }
+  .profile-pic-area {
+    text-align: center;
+  }
+  .profile-pic-area img {
+    width: 55%;
+  }
 }
 
 @media (min-width: 1250px) {
   .container {
     display: grid;
     grid-template-columns: 494px 754px;
-    background-color: #111213;
   }
   
   header {
@@ -393,7 +409,10 @@ footer {
     display: grid;
     grid-column: 2;
     padding-bottom: 40px;
-    
+  }
+
+  .content-block {
+    margin-bottom: 0;
   }
   
   .profile-pic-area {
