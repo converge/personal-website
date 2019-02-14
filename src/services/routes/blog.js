@@ -5,6 +5,7 @@ const Blog = require('../../models/Blog')
 const authenticationRequired = require('./authenticationRequired')
 
 router.post('/create', authenticationRequired, async (req, res) => {
+  console.log('ok<-')
   const { title, category, content } = req.body
   const Post = new Blog({ title: title, category: category, content: content })
   try {
@@ -52,25 +53,25 @@ router.get('/postbyid', async (req, res) => {
   }
 })
 
-router.put('/editpost', async (req, res) => {
-  const { id, title, category, content } = req.body.params
-  console.log(req.body.params)
+router.put('/editpost', authenticationRequired, async (req, res) => {
+  // TODO: improve this call, doc is not returning what I expect
+  const { id, title, category, content } = req.body
   let blog = await Blog.findOneAndUpdate(
     { _id: id },
     { $set:
       { title: title, category: category, content: content }
     }, { new: true }, (err, doc) => {
     if (err) {
-      console.log(err)
+      console.log('general error: ', err)
       return res.json(err)
     } else {
-      console.log(doc)
-      return res.json(blog)
+      console.log('doc error: ', doc)
+      return res.json(doc)
     }
   })
 })
 
-router.delete('/deletepost/:id', async (req, res) => {
+router.delete('/deletepost/:id', authenticationRequired, async (req, res) => {
   const { id } = req.params
   console.log(id)
   try {

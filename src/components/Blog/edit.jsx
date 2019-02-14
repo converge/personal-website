@@ -2,7 +2,7 @@ import api from '../../services/api';
 import React, { Component } from 'react'
 import '../Base/style.css'
 import { BlogPostForm } from './blogPostForm'
-
+import { withAuth } from '@okta/okta-react';
 
 class CreatePost extends Component {
 
@@ -31,13 +31,16 @@ class CreatePost extends Component {
   handleSubmit = async (values, actions) => {
     console.log('edit')
     const { id } = this.props.match.params
-    actions.setSubmitting(false)
-    const response = await api.put('/blog/editpost', {
-      params: {
+    const post = {
         id: id,
         title: values.title,
         category: values.category,
         content: values.content
+    }
+    actions.setSubmitting(false)
+    const response = await api.put('/blog/editpost', post, {
+      headers: {
+          Authorization: 'Bearer ' + await this.props.auth.getAccessToken()
       }
     })
     if (response.status === 200) {
@@ -60,4 +63,4 @@ class CreatePost extends Component {
   }
 }
 
-export default CreatePost
+export default withAuth(CreatePost)

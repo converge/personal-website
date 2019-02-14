@@ -1,6 +1,7 @@
 import api from '../../services/api';
 import React, { Component } from 'react'
 import { BlogPostForm } from './blogPostForm'
+import { withAuth } from '@okta/okta-react';
 import '../Base/style.css'
 
 class CreatePost extends Component {
@@ -12,7 +13,12 @@ class CreatePost extends Component {
       category: values.category,
       content: values.content
     }
-    const response = await api.post('/blog/create', postContent)
+
+    const response = await api.post('/blog/create', postContent, {
+      headers: {
+        Authorization: 'Bearer ' + await this.props.auth.getAccessToken()
+      }
+    })
     if (response.status === 200) {
       console.log('post criado')
     } else {
@@ -29,4 +35,4 @@ class CreatePost extends Component {
   }
 }
 
-export default CreatePost
+export default withAuth(CreatePost)

@@ -9,8 +9,8 @@ const oktaJwtVerifier = new OktaJwtVerifier({
 });
 
 const authenticationRequired = (req, res, next) => {
-  const authHeader = req.headers.authorization || '';
-  console.log(req.headers.authorization)
+  const authHeader = req.headers.authorization || ''
+  console.log('header: ', authHeader)
   const match = authHeader.match(/Bearer (.+)/);
 
   if (!match) {
@@ -18,13 +18,14 @@ const authenticationRequired = (req, res, next) => {
   }
   
   const accessToken = match[1];
+
   return oktaJwtVerifier.verifyAccessToken(accessToken)
     .then((jwt) => {
       req.jwt = jwt;
       next();
     })
     .catch((err) => {
-      console.log(err)
+      console.log('error: ', err)
       res.status(401).send(err.message);
     });
 }

@@ -29,7 +29,11 @@ class Blog extends Component {
   }
 
   handleDeletePost = async (id) => {
-    const response = await api.delete(`/blog/deletepost/${id}`)
+    const response = await api.delete(`/blog/deletepost/${id}`, {
+      headers: {
+        Authorization: 'Bearer ' + await this.props.auth.getAccessToken()
+      }
+    })
     if (response.status === 200) {
       const activePosts = this.state.posts.filter((posts) => {
         return (posts._id !== id)
