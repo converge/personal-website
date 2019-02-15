@@ -7,6 +7,7 @@
 .profile-pic-area {
   grid-area: profile-pic;
   align-content: center;
+  align-items: center;
 }
 
 .profile-pic-area img {
@@ -42,7 +43,7 @@
   flex-wrap: wrap;
   flex-direction: column;
   color: #4ce6ac;
-  justify-content: start;
+  justify-content: flex-start;
   margin-bottom: 30px;
 }
 
