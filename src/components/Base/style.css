@@ -122,6 +122,7 @@
   margin-right: 25px;
   font-size: 14px;
   font-weight: 700;
+  align-self: center;
 }
 
 .leftbar-text-single {
@@ -183,12 +184,15 @@
   margin-bottom: 10px;
   font-size: 18px;
   padding: 5px;
+  border: 0;
+  box-shadow: 0px 5px 5px #BCBCBC;
 }
 .form-item textarea {
   width: 290px;
   height: 260px;
-  border: 1px solid #ccc;
+  border: 0;
   padding: 10px;
+  resize: none;
 }
 .form-item button {
   margin-left: 30px;
@@ -351,6 +355,8 @@ footer {
   
   .profile-info-area, .profile-pic-area, .about-me-area, .projects-area {
     margin-bottom: 0;
+    flex-direction: row;
+    justify-content: center;
   }
   .blog-area, .social-area, .contact-me-area {
     background-color: #f9f9f9;
@@ -377,6 +383,7 @@ footer {
   }
   .profile-pic-area img {
     width: 55%;
+    text-align: center;
   }
 }
 
@@ -416,10 +423,14 @@ footer {
   }
   
   .profile-pic-area {
-    justify-content: start;
+    justify-content: center;
+    text-align: center;
   }
   .blog-area, .social-area, .contact-me-area {
     background-color: #f9f9f9;
     color: #111213;
+  }
+  .projects-area {
+    flex-direction: column;
   }
 }
