@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const urlSlugs = require('mongoose-url-slugs');
 
-
 const Blog = new mongoose.Schema({
   title: {type: String, trim: true, required: true},
   category: {type: String, trim: true, required: true},

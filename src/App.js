@@ -10,7 +10,9 @@ import { faPlusCircle, faListOl, faTrashAlt, faEdit } from '@fortawesome/free-so
 import './App.css';
 
 
-ReactGA.initialize('UA-134650724-1');
+ReactGA.initialize('UA-134650724-1', { testMode: true })
+ReactGA.pageview('/');
+ReactGA.testModeAPI.calls
 
 class GAListener extends React.Component {
   static contextTypes = {

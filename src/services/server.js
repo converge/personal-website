@@ -1,16 +1,16 @@
-require("dotenv").config();
+require("dotenv").config()
 const blog = require('./routes/blog')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const express = require('express')
 const app = express()
 const mongoDB = process.env.MONGODB;
-const mongoose = require('mongoose').set('debug', true);
+const mongoose = require('mongoose').set('debug', true)
 const email = require('./routes/email')
 
 mongoose.connect(mongoDB, { useNewUrlParser: true, useCreateIndex: true })
 .then(() => console.log('MongoDB Connected'))
-.catch(err => console.log(err));
+.catch(err => console.log(err))
 
 // parse form into json
 // necessary because we re working with JSON objects,
