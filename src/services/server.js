@@ -5,7 +5,9 @@ const cors = require('cors')
 const express = require('express')
 const app = express()
 const mongoDB = process.env.MONGODB;
-const mongoose = require('mongoose').set('debug', true)
+// debug
+// const mongoose = require('mongoose').set('debug', true)
+const mongoose = require('mongoose')
 const email = require('./routes/email')
 
 mongoose.connect(mongoDB, { useNewUrlParser: true, useCreateIndex: true })
@@ -38,4 +40,6 @@ app.use((err, req, res, next) => {
   })
 })
 
-app.listen(process.env.PORT, () => console.log(`Server listening on port ${process.env.PORT}`))
+app.listen(process.env.API_PORT, () => console.log(`Server listening on port ${process.env.API_PORT}`))
+
+module.exports = app

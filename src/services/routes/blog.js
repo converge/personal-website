@@ -5,7 +5,6 @@ const Blog = require('../../models/Blog')
 const authenticationRequired = require('./authenticationRequired')
 
 router.post('/create', authenticationRequired, async (req, res) => {
-  console.log('ok<-')
   const { title, category, content } = req.body
   const Post = new Blog({ title: title, category: category, content: content })
   try {
