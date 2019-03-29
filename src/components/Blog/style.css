@@ -61,7 +61,8 @@
 }
 
 .spinner {
-  margin-top: 80px;
+  /* can I remove it? */
+  /* margin-top: 80px; */
   align-self: center;
 }
 
@@ -100,6 +101,6 @@
     font-size: 0.7em;
   }
   .spinner {
-    margin-top: 50px;
+    margin-top: 25px;
   }
 }

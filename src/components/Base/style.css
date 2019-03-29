@@ -6,8 +6,8 @@
  */
 .profile-pic-area {
   grid-area: profile-pic;
-  align-content: center;
-  align-items: center;
+  display: grid;
+  justify-items: center;
 }
 
 .profile-pic-area img {
@@ -16,7 +16,6 @@
 
 .profile-info-area {
   grid-area: profile-info;
-
 }
 
 .about-me-area {
@@ -28,6 +27,7 @@
 
 .projects-area {
   grid-area: projects;
+  margin-bottom: 30px;
 }
 
 .contact-me-area {
@@ -39,18 +39,14 @@
 }
 
 .content-block {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
   color: #4ce6ac;
-  justify-content: flex-start;
-  margin-bottom: 30px;
+  display: grid;
+  justify-items: center;
 }
 
 .content-block img {
   object-fit: contain;
   height: 225px;
-  align-self: center;
 }
 
 .content-block ul {
@@ -63,12 +59,12 @@
 }
 
 .title-bar {
-  margin-top: 40px;
+  margin-top: 30px;
   font-size: 1em;
   font-weight: bold;
   background-color: #4ce6ac;
   border-radius: 20px;
-  width: 300px;
+  width: 250px;
   text-align: center;
   padding: 7px;
 }
@@ -81,8 +77,8 @@
   width: 300px;
   text-align: center;
   padding: 7px;
-  margin-top: 30px;
   color: #fff;
+  margin-top: 25px;
 }
 
 .title-bar-content {
@@ -95,18 +91,12 @@
 
 .content-block section .title-bar {
   padding: 10px;
-  text-align: center;
   color: #fff;
 }
 
 .content-block section .title-bar-content {
   padding: 10px;
-  text-align: center;
   color: black;
-}
-
-.content-block section {
-  align-self: center;
 }
 
 .title-bar-experience {
@@ -118,12 +108,10 @@
 
 .leftbar-text {
   width: auto;
-  margin-top: 35px;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin: 25px 25px 0 25px;
   font-size: 14px;
   font-weight: 700;
-  align-self: center;
+  justify-self: start;
 }
 
 .leftbar-text-single {
@@ -160,8 +148,8 @@
  * FORM
  */
  .form-main {
-  margin-top: 60px;
-  margin-bottom: 50px;
+  margin-top: 35px;
+  padding-bottom: 20px;
   font-size: 18px;
   text-align: left;
   width: 100%;
@@ -228,96 +216,22 @@ aside {
 
 footer {
   grid-column: 3;
-  height: 10px;
+  height: 30px;
 }
 
 /*
  * BREAKPOINTS
  */
 
- @media (min-width: 450px) {
-  .form-item input[type='text'], .form-item input[type='email'], .form-item textarea {
-    width: 370px;
-    margin-left: 30px;
-    margin-bottom: 10px;
-    font-size: 18px;
-    padding: 5px;
-  }
-  .form-item textarea {
-    width: 365px;
-    height: 260px;
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
- }
-
 /*
  * tablet and mobile landscape
  */
 @media (min-width: 640px) {
-  .form-main {
-    margin-top: 60px;
-    margin-bottom: 50px;
-    font-size: 18px;
-    text-align: left;
-    width: 600px;
-  }
-  .form-sending {
-    margin-left: 30px;
-    margin-bottom: 10px;
-  }
-  .form-sending.success {
-    color: rgb(13, 214, 90);
-  }
-  .form-sending.sending {
-    color: #f2da34;
-  }
-  .form-sending.error {
-    color: #f23434;
-  }
-  .form-item input[type='text'], .form-item input[type='email'], .form-item textarea {
-    width: 300px;
-    margin-left: 30px;
-    margin-bottom: 10px;
-    font-size: 18px;
-    padding: 5px;
-  }
-  .form-item textarea {
-    width: 550px;
-    height: 260px;
-    border: 1px solid #ccc;
-    padding: 10px;
-  }
-  .form-item button {
-    margin-left: 30px;
-    background-color: #4ce6ac;
-    text-transform: uppercase;
-    border: 0;
-    width: 200px;
-    height: 30px;
-    font-weight: 600;
-    letter-spacing: 1px;
-  }
-  .form-item button:hover {
-    color: #ffffff;
-    background-color: #000000;
-  }
-  .form-item button:active {
-    background-color: #464646;
-  }
-  .field-validation {
-    margin: 0 0 10px 30px;
-    color: rgb(252, 21, 98);
-  }
   .profile-pic-area img {
     object-fit: contain;
   }
-  
   .job-desc {
     padding-left: 20px;
-  }
-  footer {
-    height: 0px;
   }
 }
 
@@ -327,17 +241,17 @@ footer {
     grid-template-columns: 340px 684px;
     background-image: linear-gradient(to right top, #390097, #4503b0, #5107ca, #5e0ce4, #6b12ff);
   }
-  
   header {
     display: grid;
     grid-column: 1;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-content: start;
     grid-template:
     "profile-pic"
     "profile-info"
     "about-me"
     "projects"
   }
-  
   aside {
     display: grid;
     grid-column: 2;
@@ -346,14 +260,11 @@ footer {
     "social"
     "contact-me"
   }
-  
   footer {
     display: grid;
     grid-column: 2;
     padding-bottom: 40px;
-    
   }
-  
   .profile-info-area, .profile-pic-area, .about-me-area, .projects-area {
     margin-bottom: 0;
     flex-direction: row;
@@ -380,11 +291,13 @@ footer {
     height: 100%;
   }
   .profile-pic-area {
-    text-align: center;
+    align-self: start;
   }
   .profile-pic-area img {
-    width: 55%;
-    text-align: center;
+    width: 75%;
+  }
+  .profile-info-area {
+    margin-top: 15px;
   }
 }
 

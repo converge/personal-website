@@ -8,7 +8,7 @@ class AsideContent extends Component {
 
   render() {
     return (
-      <div>
+      <div className="list-posts">
         <BlogPosts />
         <div className="content-block social-area">
           <section>

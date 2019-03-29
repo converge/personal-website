@@ -1,3 +1,89 @@
 .field-validation {
   margin-left: 30px;
 }
+
+.form-item .textarea-field {
+  width: 240px;
+  padding: 10px;
+}
+
+
+/*
+ * BREAKPOINTS
+ */
+
+ @media (min-width: 450px) {
+  .form-item input[type='text'], .form-item input[type='email'], .form-item textarea {
+    width: 370px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding: 5px;
+  }
+  .form-item .textarea-field {
+    width: 370px;
+    height: 260px;
+  }
+ }
+
+/*
+ * tablet and mobile landscape
+ */
+@media (min-width: 640px) {
+  .form-main {
+    font-size: 18px;
+    text-align: left;
+    width: 600px;
+  }
+  .form-sending {
+    margin-left: 30px;
+    margin-bottom: 10px;
+  }
+  .form-sending.success {
+    color: rgb(13, 214, 90);
+  }
+  .form-sending.sending {
+    color: #f2da34;
+  }
+  .form-sending.error {
+    color: #f23434;
+  }
+  .form-item input[type='text'], .form-item input[type='email'], .form-item textarea {
+    width: 300px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding: 5px;
+  }
+  .form-item .textarea-field {
+    width: 580px;
+    height: 260px;
+  }
+  .form-item button {
+    margin-left: 30px;
+    background-color: #4ce6ac;
+    text-transform: uppercase;
+    border: 0;
+    width: 200px;
+    height: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .form-item button:hover {
+    color: #ffffff;
+    background-color: #000000;
+  }
+  .form-item button:active {
+    background-color: #464646;
+  }
+  .field-validation {
+    margin: 0 0 10px 30px;
+    color: rgb(252, 21, 98);
+  }
+  .profile-pic-area img {
+    object-fit: contain;
+  }
+  .job-desc {
+    padding-left: 20px;
+  }
+}

@@ -7,6 +7,10 @@
   display: inline;
 }
 
+.list-posts {
+  padding-top: 1px;
+}
+
 @media (min-width: 1024px) {
   .social-networks a {
     color: #000;

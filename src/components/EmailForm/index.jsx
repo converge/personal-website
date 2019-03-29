@@ -71,7 +71,7 @@ const EmailForm = () => (
                 <Field name='subject' type='text' placeholder='Subject' />
               </div>
               <div className="form-item">
-                <Field component='textarea' name='msg' placeholder='Your message' />
+                <Field component='textarea' className="textarea-field" name='msg' placeholder='Your message' />
               </div>
               <ErrorMessage name='name' className='field-validation' component='div' />
               <ErrorMessage name='email' className='field-validation' component='div' />
