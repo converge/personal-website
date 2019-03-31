@@ -299,6 +299,16 @@ footer {
   .profile-info-area {
     margin-top: 15px;
   }
+  .form-item input[type='text'], .form-item input[type='email'], .form-item textarea {
+    width: 570px;
+  }
+  .form-item textarea {
+    width: 565px;
+    height: 460px;
+  }
+  .form-item button {
+    margin-top: 10px;
+  }
 }
 
 @media (min-width: 1250px) {

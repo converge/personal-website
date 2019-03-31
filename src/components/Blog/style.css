@@ -30,7 +30,7 @@
 }
 
 .blog-category {
-  margin: 10px 0 0 10px;
+  margin-top: 15px;
   font-size: 0.9em;
 }
 
@@ -38,6 +38,11 @@
 .markdown {
   display: grid;
   font-size: 0.6em;
+  margin-top: 5px;
+}
+
+.language-js {
+  font-size: 0.8rem;
 }
 
 .markdown ol {
@@ -94,11 +99,12 @@
 @media (min-width: 1024px) {
   .blog-posts a {
     color: #5107cb;
-    font-size: 48px;
-    font-weight: 300;
+    font-size: 1.2rem;
+    font-weight: 400;
   }
   .markdown {
     font-size: 0.7em;
+    margin-top: 5px;
   }
   .spinner {
     margin-top: 25px;
