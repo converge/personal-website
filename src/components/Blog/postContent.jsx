@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import ReactMarkdown from "react-markdown";
 import Prism from "prismjs";
 import './prism.css'
+import { BlogTitle, BlogCategory } from './styles'
 
 class PostContent extends Component {
 
@@ -33,8 +34,12 @@ class PostContent extends Component {
     return (
       <div className="content-blog-block blog-area" >
         <section>
-          <p className="blog-title">{this.state.posts.title}</p>
-          <p className="blog-category">{`Category: ${this.state.posts.category}`}</p>
+          <BlogTitle>
+            {this.state.posts.title}
+          </BlogTitle>
+          <BlogCategory>
+            Category: {`${this.state.posts.category}`}
+          </BlogCategory>
         </section>
         <div className="blog-posts">
           <ReactMarkdown className="markdown" source={this.state.posts.content} />
