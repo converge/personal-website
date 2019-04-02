@@ -1,6 +1,6 @@
 require("dotenv").config()
 require('mocha')
-const app = require('../src/services/server')
+const app = require('../../src/services/server')
 const request = require('supertest')
 
 describe('GET /blog/posts', () => {
