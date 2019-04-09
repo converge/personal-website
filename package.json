@@ -42,8 +42,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
-    "test:api": "mocha --exit --timeout 5000 'test/apiTest.js'",
+    "test:api": "mocha --exit --timeout 6000 '__tests__/integration/api.test.js'",
+    "test:e2e": "jest __tests__/integration/e2e.test.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
