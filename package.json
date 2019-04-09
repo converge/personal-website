@@ -58,7 +58,6 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "faker": "^4.1.0",
-    "jest": "^24.7.1",
     "jest-environment-puppeteer": "^4.1.0",
     "jest-puppeteer": "^4.1.0",
     "mocha": "^5.2.0",
