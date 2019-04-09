@@ -30,7 +30,7 @@ describe('Google', () => {
     await emailField.type(`${faker.internet.email()}`.toLowerCase())
     // subject
     const subjectField = await page.waitForXPath('(//form/div/input)[3]')
-    await subjectField.type(`${faker.random.words(3)}`)
+    await subjectField.type('Jest/Puppeteer end to end email test')
     // message
     const messageField = await page.waitForXPath("//textarea[@name='msg']")
     await messageField.type(`${faker.lorem.sentences(5)}`)
