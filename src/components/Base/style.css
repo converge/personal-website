@@ -287,14 +287,8 @@ footer {
   .content-block {
     margin-bottom: 0;
   }
-  .content-block img {
-    height: 100%;
-  }
   .profile-pic-area {
     align-self: start;
-  }
-  .profile-pic-area img {
-    width: 75%;
   }
   .profile-info-area {
     margin-top: 15px;
