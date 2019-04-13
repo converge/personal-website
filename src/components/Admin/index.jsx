@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Dashboard from '../Dashboard'
-import SignIn from './signIn';
 import SignUp from './signUp';
 import { withAuth, SecureRoute } from '@okta/okta-react';
 import './style.css'
@@ -43,7 +42,6 @@ class Admin extends Component {
     return (
       <div>
         <Switch>
-          <Route path='/admin/signin' component={SignIn} />
           <Route path='/admin/signup' component={SignUp} />
           <SecureRoute component={Dashboard}/>
         </Switch>
