@@ -37,7 +37,7 @@
 /* https://css-tricks.com/custom-list-number-styling/ */
 .markdown {
   display: grid;
-  font-size: 0.6em;
+  font-size: 0.55em;
   margin-top: 5px;
 }
 
@@ -103,7 +103,7 @@ pre {
     font-weight: 400;
   }
   .markdown {
-    font-size: 0.7em;
+    font-size: 0.65em;
     margin-top: 5px;
   }
   .spinner {

@@ -6,6 +6,7 @@ describe('Google', () => {
   });
 
   it('should be titled "Full Stack"', async () => {
+    await page.waitFor(1000)
     await expect(page.title()).resolves.toMatch('João Vanzuita - Full Stack Developer');
   }, 10000);
 

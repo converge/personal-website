@@ -10,7 +10,7 @@ import { faPlusCircle, faListOl, faTrashAlt, faEdit } from '@fortawesome/free-so
 import './App.css';
 
 
-ReactGA.initialize('UA-134650724-1', { testMode: true })
+ReactGA.initialize('UA-134650724-1', { testMode: false })
 ReactGA.pageview('/');
 // ReactGA.testModeAPI.calls
 
@@ -41,6 +41,7 @@ class App extends Component {
       <div className="App">
         <Helmet>
           <title>João Vanzuita - Full Stack Developer</title>
+          <meta name="description" content="João Vanzuita is a experienced full stack software developer who loves to build things. Drived by passion and love to improve our world!" />
         </Helmet>
         <BrowserRouter>
           <GAListener>

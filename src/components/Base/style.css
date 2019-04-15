@@ -127,6 +127,10 @@
   font-weight: 700;
 }
 
+.single-line a {
+  color: #ffffff;
+}
+
 .single-line-email {
   margin-top: 50px;
   margin-bottom: 50px;

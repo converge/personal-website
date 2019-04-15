@@ -12,7 +12,7 @@ export default class Base extends Component {
         <div className="container">
           <header>
             <div className="content-block profile-pic-area">
-              <img src={profilePic} alt='Profile' />
+              <img src={profilePic} alt='João Vanzuita' />
             </div>
             <div className="content-block profile-info-area">
               <section>
@@ -53,7 +53,7 @@ export default class Base extends Component {
                 <p className="title-bar-noeffect">SIDE PROJECTS</p>
               </section>
               <p className="single-line">
-                github.com/converge
+                <a href="https://www.github.com/converge">github.com/converge</a>
             </p>
             </div>
           </header>

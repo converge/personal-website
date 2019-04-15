@@ -18,18 +18,18 @@ export default class BlogPost extends Component {
             </div>
             <div className="content-block profile-info-area">
               <section>
-                <p className="title-bar-noeffect">Working Here</p>
+                <p className="title-bar-noeffect">LIFE</p>
               </section>
               <p className="leftbar-text">
-                will update it soon :)
+                is
             </p>
             </div>
             <div className="content-block projects-area">
               <section>
-                <p className="title-bar-noeffect">SIDE PROJECTS</p>
+                <p className="title-bar-noeffect">NOW!</p>
               </section>
               <p className="single-line">
-                github.com/converge
+                Live the present moment and share the love!
             </p>
             </div>
           </header>
