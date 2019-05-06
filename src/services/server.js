@@ -12,7 +12,7 @@ const mongoDB = process.env.MONGODB;
 const mongoose = require('mongoose')
 const email = require('./routes/email')
 
-const httpsOptions = null
+let httpsOptions = null
 try {
   httpsOptions = {
     cert: fs.readFileSync('/etc/letsencrypt/live/joaovanzuita.me/fullchain.pem'),
@@ -51,10 +51,9 @@ app.use((err, req, res, next) => {
   })
 })
 app.listen(process.env.API_PORT, () => console.log(`HTTP server listening on port ${process.env.API_PORT}`))
-try {
+if (httpsOptions !== null) {
   https.createServer(httpsOptions, app).listen(process.env.API_SSL_PORT, () => console.log(`HTTPS server listening on port ${process.env.API_SSL_PORT}`))
-} catch (err) {
-  console.log(err)
+} else {
   console.log('Unable to load HTTPS server')
 }
 
