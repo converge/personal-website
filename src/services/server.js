@@ -17,7 +17,6 @@ try {
   httpsOptions = {
     cert: fs.readFileSync('/etc/letsencrypt/live/joaovanzuita.me/fullchain.pem'),
     key: fs.readFileSync('/etc/letsencrypt/live/joaovanzuita.me/privkey.pem'),
-    // TODO: is CA necessary
     ca: fs.readFileSync('/etc/letsencrypt/live/joaovanzuita.me/chain.pem'),
   }
 } catch (err) {}
@@ -52,9 +51,10 @@ app.use((err, req, res, next) => {
   })
 })
 app.listen(process.env.API_PORT, () => console.log(`HTTP server listening on port ${process.env.API_PORT}`))
-if (httpsOptions !== null) {
+try {
   https.createServer(httpsOptions, app).listen(process.env.API_SSL_PORT, () => console.log(`HTTPS server listening on port ${process.env.API_SSL_PORT}`))
-} else {
+} catch (err) {
+  console.log(err)
   console.log('Unable to load HTTPS server')
 }
 
