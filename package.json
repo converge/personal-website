@@ -1,11 +1,11 @@
 {
-  "name": "personal-web3",
+  "name": "personal-web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.15",
-    "@fortawesome/free-brands-svg-icons": "^5.7.2",
-    "@fortawesome/free-solid-svg-icons": "^5.7.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-brands-svg-icons": "^5.8.2",
+    "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@okta/jwt-verifier": "0.0.14",
     "@okta/okta-react": "^1.2.0",
@@ -13,17 +13,17 @@
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
-    "express": "^4.16.4",
-    "formik": "^1.5.1",
-    "mongoose": "^5.4.14",
+    "express": "^4.17.0",
+    "formik": "^1.5.7",
+    "mongoose": "^5.5.9",
     "mongoose-url-slugs": "^1.0.2",
     "nodemailer": "^5.1.1",
     "prismjs": "^1.15.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-ga": "^2.5.7",
-    "react-helmet": "^5.2.0",
-    "react-markdown": "^4.0.6",
+    "react-helmet": "^5.2.1",
+    "react-markdown": "^4.0.8",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.5",
     "react-spinners": "^0.5.1",
@@ -33,8 +33,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test:api": "mocha --exit --timeout 6000 '__tests__/integration/api.test.js'",
-    "test:e2e": "jest __tests__/integration/e2e.test.js",
+    "test:api": "NODE_ENV=test mocha --exit --timeout 6000 '__tests__/integration/api.supertest_test.js'",
+    "test:e2e": "NODE_ENV=test npx cypress run",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -47,11 +47,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "cypress": "^3.3.0",
     "faker": "^4.1.0",
-    "jest-environment-puppeteer": "^4.1.0",
-    "jest-puppeteer": "^4.1.0",
     "mocha": "^5.2.0",
-    "puppeteer": "^1.14.0",
     "supertest": "^3.4.2"
   }
 }

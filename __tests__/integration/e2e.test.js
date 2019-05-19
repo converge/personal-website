@@ -1,51 +1,34 @@
+// active IntelliSense
+/// <reference types="Cypress" />
 const faker = require('faker')
 
-describe('Google', () => {
-  beforeEach(async () => {
-    await page.goto('http://www.joaovanzuita.me');
-  });
-
-  it('should be titled "Full Stack"', async () => {
-    await page.waitFor(1000)
-    await expect(page.title()).resolves.toMatch('João Vanzuita - Full Stack Developer');
-  }, 10000);
-
-  it('should load first post', async () => {
-    const firstPostLink = await page.waitForXPath('(//a)[1]')
-    await firstPostLink.click()
-    let postTitle = null
-    try {
-      postTitle = await page.waitForXPath('(//p)[5]')
-    } catch (err) {
-      console.log(err)
-    }
-    expect(postTitle).not.toBe(null)
+describe('e2e test', () => {
+  beforeEach(() => {
+    cy.visit('/')
   })
 
-  it('should send test email', async () => {
-    // fill the form with, name:
-    const nameField = await page.waitForXPath('(//form/div/input)[1]')
-    await nameField.type(`${faker.name.firstName()} ${faker.name.lastName()}`)
-    // e-mail
-    const emailField = await page.waitForXPath('(//form/div/input)[2]')
-    await emailField.type(`${faker.internet.email()}`.toLowerCase())
-    // subject
-    const subjectField = await page.waitForXPath('(//form/div/input)[3]')
-    await subjectField.type('Jest/Puppeteer end to end email test')
-    // message
-    const messageField = await page.waitForXPath("//textarea[@name='msg']")
-    await messageField.type(`${faker.lorem.sentences(5)}`)
-    // submit button
-    const submitButton = await page.waitForXPath("//button[@type='submit'][text()='Submit']")
-    await submitButton.click()
+  it('should match title for SEO', () => {
+    cy.title().should('include', 'João Vanzuita')
+  })
 
-    await page.waitFor(5000)
-    const emailStatus = await page.waitForXPath("//div[text()='Email sent !']")
-    const emailSentMessage = await (await emailStatus.getProperty('textContent')).jsonValue()
+  it('should load first blog post', () => {
+    cy.get('.blog-posts > :nth-child(1) > li > a')
+  })
 
-    // console.log(text)
-    expect(emailSentMessage).toMatch('Email sent !')
-  }, 20000)
-
-
-});
+  it('should send testing email', () => {
+    // fill the form
+    cy.get(':nth-child(1) > input').type(
+      `${faker.name.firstName()} ${faker.name.lastName()}`
+    )
+    cy.get(':nth-child(2) > input').type(
+      `${faker.internet.email()}`.toLowerCase()
+    )
+    cy.get(':nth-child(3) > input').type('Cypress e2e email test')
+    cy.get('.textarea-field').type(`${faker.lorem.sentences(5)}`)
+    // send form/email
+    cy.get('button').click()
+    cy.get('.form-sending.sending').should('have.text', 'Sending email...')
+    cy.wait(10000)
+    cy.get('.form-sending.success').should('have.text', 'Email sent !')
+  })
+})
