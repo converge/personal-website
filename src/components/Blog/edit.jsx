@@ -1,18 +1,31 @@
-import api from '../../services/api';
+import api from '../../services/api'
 import React, { Component } from 'react'
-import '../Base/style.css'
 import { BlogPostForm } from './blogPostForm'
-import { withAuth } from '@okta/okta-react';
+import { withAuth } from '@okta/okta-react'
+import {
+  BlogPostEditContainer,
+  LiveMarkdown,
+  BlogPostWrapper,
+  BlogTitle
+} from './styles'
+import Prism from 'prismjs'
+import './prism.css'
+import ReactMarkdown from 'react-markdown'
+import './style.css'
 
 class CreatePost extends Component {
-
   state = {
     title: '',
     category: '',
     content: ''
   }
 
+  componentDidUpdate = () => {
+    Prism.highlightAll()
+  }
+
   componentDidMount = async () => {
+    Prism.highlightAll()
     const { id } = this.props.match.params
     const response = await api.get('/blog/postbyid', {
       params: {
@@ -29,36 +42,57 @@ class CreatePost extends Component {
   }
 
   handleSubmit = async (values, actions) => {
-    console.log('edit')
     const { id } = this.props.match.params
     const post = {
-        id: id,
-        title: values.title,
-        category: values.category,
-        content: values.content
+      id: id,
+      title: values.title,
+      category: values.category,
+      content: values.content
     }
     actions.setSubmitting(false)
     const response = await api.put('/blog/editpost', post, {
       headers: {
-          Authorization: 'Bearer ' + await this.props.auth.getAccessToken()
+        Authorization: 'Bearer ' + (await this.props.auth.getAccessToken())
       }
     })
     if (response.status === 200) {
-      console.log('updated')
     }
   }
+
+  onInputChangeHandler = e => {
+    const name = e.target.name
+    const value = e.target.value
+    this.setState({
+      [name]: value
+    })
+  }
+
   render() {
     return (
-      <div>
-        <h1>Edit Post</h1>
-        <BlogPostForm
-          handleSubmit={this.handleSubmit}
-          title={this.state.title} 
-          category={this.state.category} 
-          content={this.state.content}
-          action={'edit'}
-        />
-      </div>
+      <BlogPostWrapper>
+        <BlogPostEditContainer>
+          <BlogPostForm
+            handleSubmit={this.handleSubmit}
+            title={this.state.title}
+            category={this.state.category}
+            content={this.state.content}
+            onTitleChange={this.onInputChangeHandler}
+            onCategoryChange={this.onInputChangeHandler}
+            onContentChange={this.onInputChangeHandler}
+            action={'edit'}
+          />
+          <LiveMarkdown>
+            <div className="blog-posts">
+              <BlogTitle>{this.state.title}</BlogTitle>
+              <ReactMarkdown
+                className="markdown"
+                source={this.state.content}
+                escapeHtml={false}
+              />
+            </div>
+          </LiveMarkdown>
+        </BlogPostEditContainer>
+      </BlogPostWrapper>
     )
   }
 }

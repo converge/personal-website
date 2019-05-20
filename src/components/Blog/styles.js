@@ -21,3 +21,30 @@ export const BlogCategory = styled.p`
     font-size: 1em;
   }
 `
+
+export const BlogPostEdit = styled.div`
+  font-size: 1em;
+  text-align: left;
+
+  .form-item input[type='text'],
+  .form-item input[type='email'],
+  .form-item textarea {
+    width: 500px;
+  }
+  .form-item textarea {
+    width: 720px;
+    height: 500px;
+    resize: none;
+  }
+`
+
+export const BlogPostEditContainer = styled.div`
+  display: grid;
+  grid-template-columns: 800px 1fr;
+`
+
+export const LiveMarkdown = styled.div``
+
+export const BlogPostWrapper = styled.div`
+  height: 100vh;
+`
