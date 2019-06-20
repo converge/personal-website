@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import ReactGA from 'react-ga'
+import GAListener from './GAListener'
 import Routes from './components/Routes'
 import { BrowserRouter } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { PropTypes } from 'prop-types'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import {
   faPlusCircle,
@@ -13,33 +12,6 @@ import {
   faEdit
 } from '@fortawesome/free-solid-svg-icons'
 import './App.css'
-require('dotenv').config()
-
-ReactGA.initialize('UA-134650724-1', {
-  testMode: process.env.REACT_APP_GOOGLE_ANALYTICS_TESTMODE
-})
-ReactGA.pageview('/')
-// ReactGA.testModeAPI.calls
-
-class GAListener extends React.Component {
-  static contextTypes = {
-    router: PropTypes.object
-  }
-
-  componentDidMount() {
-    this.sendPageView(this.context.router.history.location)
-    this.context.router.history.listen(this.sendPageView)
-  }
-
-  sendPageView(location) {
-    ReactGA.set({ page: location.pathname })
-    ReactGA.pageview(location.pathname)
-  }
-
-  render() {
-    return this.props.children
-  }
-}
 
 class App extends Component {
   render() {
@@ -53,7 +25,7 @@ class App extends Component {
           />
         </Helmet>
         <BrowserRouter>
-          <GAListener>
+          <GAListener trackingId="UA-134650724-1">
             <Routes />
           </GAListener>
         </BrowserRouter>
@@ -64,4 +36,5 @@ class App extends Component {
 
 export default App
 
+// add icons
 library.add(fab, faPlusCircle, faListOl, faTrashAlt, faEdit)

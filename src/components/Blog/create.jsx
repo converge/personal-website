@@ -1,11 +1,10 @@
-import api from '../../services/api';
+import api from '../../services/api'
 import React, { Component } from 'react'
 import { BlogPostForm } from './blogPostForm'
-import { withAuth } from '@okta/okta-react';
+import { withAuth } from '@okta/okta-react'
 import '../Base/style.css'
 
 class CreatePost extends Component {
-
   handleSubmit = async (values, actions) => {
     actions.setSubmitting(false)
     const postContent = {
@@ -16,7 +15,7 @@ class CreatePost extends Component {
 
     const response = await api.post('/blog/create', postContent, {
       headers: {
-        Authorization: 'Bearer ' + await this.props.auth.getAccessToken()
+        Authorization: 'Bearer ' + (await this.props.auth.getAccessToken())
       }
     })
     if (response.status === 200) {
@@ -25,11 +24,25 @@ class CreatePost extends Component {
       console.log('erro criar post')
     }
   }
+
+  onInputChangeHandler = e => {
+    const name = e.target.name
+    const value = e.target.value
+    this.setState({
+      [name]: value
+    })
+  }
+
   render() {
-    return(
+    return (
       <div>
-        <h1>Create Post</h1>
-        <BlogPostForm handleSubmit={this.handleSubmit} />
+        <BlogPostForm
+          handleSubmit={this.handleSubmit}
+          onTitleChange={this.onInputChangeHandler}
+          onCategoryChange={this.onInputChangeHandler}
+          onContentChange={this.onInputChangeHandler}
+          action={'create'}
+        />
       </div>
     )
   }

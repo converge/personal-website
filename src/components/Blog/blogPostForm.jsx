@@ -4,7 +4,10 @@ import { BlogPostEdit } from './styles'
 
 const BlogPostForm = props => (
   <BlogPostEdit>
-    <h1>Edit Post</h1>
+    <h1>
+      {/* first letter uppercase */}
+      {`${props.action.charAt(0).toUpperCase()}${props.action.slice(1)}`} Post
+    </h1>
 
     <Formik
       enableReinitialize
@@ -32,7 +35,11 @@ const BlogPostForm = props => (
               name="title"
               type="text"
               placeholder="Title"
-              onChange={props.onTitleChange}
+              onChange={e => {
+                props.onTitleChange(e)
+                formikContext.setFieldValue('title', e.target.value)
+              }}
+              value={props.title}
             />
           </div>
           <div className="form-item">
@@ -40,7 +47,11 @@ const BlogPostForm = props => (
               name="category"
               type="text"
               placeholder="Category"
-              onChange={props.onCategoryChange}
+              onChange={e => {
+                props.onCategoryChange(e)
+                formikContext.setFieldValue('category', e.target.value)
+              }}
+              value={props.category}
             />
           </div>
           <div className="form-item">
@@ -55,6 +66,7 @@ const BlogPostForm = props => (
                 // update formik field
                 formikContext.setFieldValue('content', e.target.value)
               }}
+              value={props.content}
             />
           </div>
           <ErrorMessage

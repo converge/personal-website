@@ -3,31 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.18",
-    "@fortawesome/free-brands-svg-icons": "^5.8.2",
-    "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-brands-svg-icons": "^5.9.0",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "@okta/jwt-verifier": "0.0.14",
+    "@okta/jwt-verifier": "0.0.16",
     "@okta/okta-react": "^1.2.0",
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
-    "dotenv": "^6.2.0",
-    "express": "^4.17.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
     "formik": "^1.5.7",
-    "mongoose": "^5.5.9",
+    "mongoose": "^5.6.0",
     "mongoose-url-slugs": "^1.0.2",
-    "nodemailer": "^5.1.1",
+    "nodemailer": "^6.2.1",
     "prismjs": "^1.15.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-ga": "^2.5.7",
     "react-helmet": "^5.2.1",
     "react-markdown": "^4.0.8",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.5",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.0.1",
     "react-spinners": "^0.5.1",
-    "styled-components": "^4.2.0",
+    "styled-components": "^4.3.2",
     "uuid": "^3.3.2"
   },
   "scripts": {
@@ -47,9 +47,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "cypress": "^3.3.0",
+    "cypress": "^3.3.1",
     "faker": "^4.1.0",
-    "mocha": "^5.2.0",
-    "supertest": "^3.4.2"
+    "mocha": "^6.1.4",
+    "supertest": "^4.0.2"
   }
 }
