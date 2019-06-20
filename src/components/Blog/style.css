@@ -1,4 +1,3 @@
-
 .blog-posts {
   font-size: 1.5em;
   text-align: left;
@@ -41,6 +40,11 @@
   margin-top: 5px;
 }
 
+p code {
+  color: #4d06c0;
+  background-color: #e4e4e4;
+}
+
 pre {
   font-size: 0.8rem;
 }
@@ -56,7 +60,7 @@ pre {
 }
 
 .markdown ol li::before {
-  content: counter(list-counter) ". ";
+  content: counter(list-counter) '. ';
   font-style: initial;
 }
 
@@ -78,7 +82,7 @@ pre {
 .delete-post {
   width: 60px;
   color: #fff;
-  background-color: #FF2C55;
+  background-color: #ff2c55;
 }
 
 .action-buttons {
