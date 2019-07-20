@@ -26,6 +26,7 @@
     "react-markdown": "^4.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
+    "react-snap": "^1.23.0",
     "react-spinners": "^0.5.13",
     "styled-components": "^4.3.2",
     "uuid": "^3.3.2"
