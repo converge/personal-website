@@ -3,26 +3,24 @@ import { Route } from 'react-router-dom'
 import profilePic from '../../imgs/profile_pic.png'
 import PostContent from '../Blog/postContent'
 import { Link } from 'react-router-dom'
+import Helmet from 'react-helmet'
 
 export default class BlogPost extends Component {
-
   render() {
     return (
       <Fragment>
         <div className="container">
           <header>
             <div className="content-block profile-pic-area">
-              <Link to='/'>
-                <img src={profilePic} alt='Profile' />
+              <Link to="/">
+                <img src={profilePic} alt="Profile" />
               </Link>
             </div>
             <div className="content-block profile-info-area">
               <section>
                 <p className="title-bar-noeffect">LIFE</p>
               </section>
-              <p className="leftbar-text">
-                is
-            </p>
+              <p className="leftbar-text">is</p>
             </div>
             <div className="content-block projects-area">
               <section>
@@ -30,18 +28,20 @@ export default class BlogPost extends Component {
               </section>
               <p className="single-line">
                 Live the present moment and share the love!
-            </p>
+              </p>
             </div>
           </header>
 
           <aside>
+            <Helmet>
+              <title>test</title>
+            </Helmet>
+            www
             <Route component={PostContent} />
           </aside>
-          <footer>
-          </footer>
+          <footer />
         </div>
-      </Fragment >
+      </Fragment>
     )
   }
-
 }
