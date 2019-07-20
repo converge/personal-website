@@ -53,5 +53,12 @@
     "faker": "^4.1.0",
     "mocha": "^6.2.0",
     "supertest": "^4.0.2"
+  },
+  "reactSnap": {
+    "puppeteerArgs": [
+      "--no-sandbox"
+    ],
+    "concurrency": 1,
+    "inlineCss": false
   }
 }
