@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
-import GAListener from './GAListener'
-import Routes from './components/Routes'
-import { BrowserRouter } from 'react-router-dom'
-import { Helmet } from 'react-helmet'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import React, { Component } from 'react';
+import GAListener from './GAListener';
+import Routes from './components/Routes';
+import { BrowserRouter } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
   faPlusCircle,
   faListOl,
   faTrashAlt,
-  faEdit
-} from '@fortawesome/free-solid-svg-icons'
-import './App.css'
+  faEdit,
+} from '@fortawesome/free-solid-svg-icons';
+import './App.css';
 
 class App extends Component {
   render() {
@@ -23,6 +23,14 @@ class App extends Component {
             name="description"
             content="João Vanzuita is a experienced full stack software developer who loves to build things. Drived by passion and love to improve our world!"
           />
+          <meta
+            property="og:title"
+            content="### João Vanzuita - Full Stack Developer"
+          />
+          <meta
+            property="og:image"
+            content="https://joaovanzuita.me/static/media/profile_pic.eb5e5a85.png"
+          />
         </Helmet>
         <BrowserRouter>
           <GAListener trackingId="UA-134650724-1">
@@ -30,11 +38,11 @@ class App extends Component {
           </GAListener>
         </BrowserRouter>
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;
 
 // add icons
-library.add(fab, faPlusCircle, faListOl, faTrashAlt, faEdit)
+library.add(fab, faPlusCircle, faListOl, faTrashAlt, faEdit);

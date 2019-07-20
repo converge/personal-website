@@ -14,28 +14,29 @@
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
-    "formik": "^1.5.7",
-    "mongoose": "^5.6.0",
+    "formik": "^1.5.8",
+    "mongoose": "^5.6.5",
     "mongoose-url-slugs": "^1.0.2",
-    "nodemailer": "^6.2.1",
+    "nodemailer": "^6.3.0",
     "prismjs": "^1.15.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-ga": "^2.5.7",
+    "react-ga": "^2.6.0",
     "react-helmet": "^5.2.1",
-    "react-markdown": "^4.0.8",
+    "react-markdown": "^4.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
-    "react-spinners": "^0.5.1",
+    "react-spinners": "^0.5.13",
     "styled-components": "^4.3.2",
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3008 react-scripts start",
     "build": "react-scripts build",
     "test:api": "NODE_ENV=test mocha --exit --timeout 6000 '__tests__/integration/api.supertest_test.js'",
     "test:e2e": "NODE_ENV=test npx cypress run",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postbuild": "react-snap"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,9 +48,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "cypress": "^3.3.1",
+    "cypress": "^3.4.0",
     "faker": "^4.1.0",
-    "mocha": "^6.1.4",
+    "mocha": "^6.2.0",
     "supertest": "^4.0.2"
   }
 }
