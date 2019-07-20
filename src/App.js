@@ -25,7 +25,7 @@ class App extends Component {
           />
           <meta
             property="og:title"
-            content="### João Vanzuita - Full Stack Developer"
+            content="João Vanzuita - Full Stack Developer"
           />
           <meta
             property="og:image"
