@@ -40,6 +40,10 @@
   margin-top: 5px;
 }
 
+.markdown p {
+  line-height: 2.1rem;
+}
+
 p code {
   color: #4d06c0;
   background-color: #e4e4e4;
