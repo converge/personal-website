@@ -1,31 +1,41 @@
-import React, { Component, Fragment } from 'react'
-import AsideContent from '../AsideContent'
-import profilePic from '../../imgs/profile_pic.png'
-import { Route } from 'react-router-dom'
-import './style.css'
+import React, { Component, Fragment } from 'react';
+import AsideContent from '../AsideContent';
+import profilePic from '../../imgs/profile_pic.png';
+import { Helmet } from 'react-helmet';
+import { Route } from 'react-router-dom';
+import './style.css';
 
 export default class Base extends Component {
-
   render() {
     return (
       <Fragment>
+        <Helmet>
+          <meta
+            property="og:title"
+            content="João Vanzuita - Full Stack Developer"
+          />
+          <meta
+            property="og:image"
+            content="https://joaovanzuita.me/static/media/profile_pic.eb5e5a85.png"
+          />
+        </Helmet>
         <div className="container">
           <header>
             <div className="content-block profile-pic-area">
-              <img src={profilePic} alt='João Vanzuita' />
+              <img src={profilePic} alt="João Vanzuita" />
             </div>
             <div className="content-block profile-info-area">
               <section>
                 <p className="title-bar-noeffect">PROFILE</p>
               </section>
               <p className="leftbar-text">
-                I'm Brazilian, 35 years old, passionate about technology
-                since my teenage years and curious about future developments.
-            </p>
+                I'm Brazilian, 35 years old, passionate about technology since
+                my teenage years and curious about future developments.
+              </p>
               <p className="leftbar-text">
                 I have been a software developer for the past eleven years.
                 Nowadays I work as Senior Full Stack Developer.
-            </p>
+              </p>
             </div>
             <div className="content-block about-me-area">
               <section>
@@ -33,39 +43,38 @@ export default class Base extends Component {
               </section>
               <p className="leftbar-text">
                 I see work as an activity to make the planet we live on better.
-            </p>
+              </p>
               <p className="leftbar-text">
                 To make the world a better place I want to create software that
                 enables the digital opportunities of businesses.
-            </p>
+              </p>
               <p className="leftbar-text">
                 That’s why I’m passionate about road cycling and meditation,
                 keeping mind, body and spirit healthy is the first step to be
                 fine with ourselves and others.
-            </p>
+              </p>
               <p className="leftbar-text">
                 A balanced life is key to amazing software.
-            </p>
-
+              </p>
             </div>
             <div className="content-block projects-area">
               <section>
                 <p className="title-bar-noeffect">SIDE PROJECTS</p>
               </section>
               <p className="single-line">
-                <a href="https://www.github.com/converge">github.com/converge</a>
-            </p>
+                <a href="https://www.github.com/converge">
+                  github.com/converge
+                </a>
+              </p>
             </div>
           </header>
 
           <aside>
             <Route component={AsideContent} />
           </aside>
-          <footer>
-          </footer>
+          <footer />
         </div>
-      </Fragment >
-    )
+      </Fragment>
+    );
   }
-
 }

@@ -23,14 +23,6 @@ class App extends Component {
             name="description"
             content="João Vanzuita is a experienced full stack software developer who loves to build things. Drived by passion and love to improve our world!"
           />
-          <meta
-            property="og:title"
-            content="João Vanzuita - Full Stack Developer"
-          />
-          <meta
-            property="og:image"
-            content="https://joaovanzuita.me/static/media/profile_pic.eb5e5a85.png"
-          />
         </Helmet>
         <BrowserRouter>
           <GAListener trackingId="UA-134650724-1">
