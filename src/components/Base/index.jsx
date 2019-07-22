@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import AsideContent from '../AsideContent';
 import profilePic from '../../imgs/profile_pic.png';
-import { Helmet } from 'react-helmet';
 import { Route } from 'react-router-dom';
 import './style.css';
 
@@ -9,16 +8,6 @@ export default class Base extends Component {
   render() {
     return (
       <Fragment>
-        <Helmet>
-          <meta
-            property="og:title"
-            content="João Vanzuita - Full Stack Developer"
-          />
-          <meta
-            property="og:image"
-            content="https://joaovanzuita.me/static/media/profile_pic.eb5e5a85.png"
-          />
-        </Helmet>
         <div className="container">
           <header>
             <div className="content-block profile-pic-area">
