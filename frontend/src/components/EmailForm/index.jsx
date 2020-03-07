@@ -4,21 +4,17 @@ import {useForm} from 'react-hook-form';
 import './style.css'
 
 const encode = (data) => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+  return Object.keys(data).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])).join("&");
 }
 
 const EmailForm = () => {
   const {handleSubmit, register, errors} = useForm();
 
   const onSubmit = (values) => {
-    console.log('hello')
-    console.log(values)
     fetch("/", {
       method: "POST",
       headers: {"Content-Type": "application/x-www-form-urlencoded"},
-      body: encode({"form-name": "contact2", values})
+      body: encode({"form-name": "contact2", ...values})
     })
       .then(() => alert("Success!"))
       .catch(error => alert(error));
