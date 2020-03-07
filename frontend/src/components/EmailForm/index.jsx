@@ -17,15 +17,20 @@ const EmailForm = () => {
     console.log(values)
     fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", values })
+      headers: {"Content-Type": "application/x-www-form-urlencoded"},
+      body: encode({"form-name": "contact", values})
     })
       .then(() => alert("Success!"))
       .catch(error => alert(error));
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)} method="post">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      method="post"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field">>
 
+      <input type="hidden" name="form-name" value="contact2"/>
       <input name="email"
              type="email"
              ref={register({
