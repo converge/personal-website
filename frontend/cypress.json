@@ -1,0 +1,6 @@
+{
+  "testFiles": "*.test.js",
+  "integrationFolder": "__tests__/integration/",
+  "baseUrl": "http://localhost:8000",
+  "video": false
+}
