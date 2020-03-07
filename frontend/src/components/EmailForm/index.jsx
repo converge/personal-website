@@ -60,7 +60,8 @@ const EmailForm = () => (
           //   }
           // }}
           render={x => (
-            <Form data-netlify="true">
+            <Form name="contact" data-netlify="true" data-netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact" />
               <div className="form-item">
                 <Field name='name' type='text' placeholder='Name' />
               </div>
