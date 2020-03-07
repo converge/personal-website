@@ -25,6 +25,7 @@ const EmailForm = () => {
   }
   return (
     <form
+      name="contact2"
       onSubmit={handleSubmit(onSubmit)}
       method="post"
       data-netlify="true"
