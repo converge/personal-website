@@ -25,3 +25,8 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
+
+frontend/public/
+frontend/node_modules/
+frontend/.cache
+.idea

@@ -16,7 +16,6 @@ const Blog = ({blogPosts}) => {
 
   return (
     <div className="content-block blog-area">
-      {console.log(postsList)}
       <section>
         <p className="title-bar">BLOG</p>
       </section>
