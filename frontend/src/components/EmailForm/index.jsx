@@ -1,6 +1,12 @@
 import React from 'react'
-import { Formik, Field, Form, ErrorMessage } from 'formik'
+import {Formik, Field, Form, ErrorMessage} from 'formik'
 import './style.css'
+
+const encode = (data) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 const EmailForm = () => (
   <div>
@@ -34,50 +40,34 @@ const EmailForm = () => (
             return errors
           }}
 
-          // onSubmit={async (values, actions) => {
-          //   actions.setStatus({
-          //     success: 'Sending email...',
-          //     css: 'sending'
-          //   })
-          //   actions.setSubmitting(false)
-          //   // const response = await api.post('/email/send_email', {
-          //   //   name: values.name,
-          //   //   email: values.email,
-          //   //   subject: values.subject,
-          //   //   msg: values.msg
-          //   // })
-          //   const response = {status: 200};
-          //   if (response.status === 200) {
-          //     actions.setStatus({
-          //       success: 'Email sent !',
-          //       css: 'success'
-          //     })
-          //   } else {
-          //     actions.setStatus({
-          //       success: 'Something went wrong, email not sent !',
-          //       css: 'error'
-          //     })
-          //   }
-          // }}
+          onSubmit={() => {
+            fetch("/", {
+              method: "POST",
+              headers: {"Content-Type": "application/x-www-form-urlencoded"},
+              body: encode({"form-name": "contact", ...this.state})
+            })
+              .then(() => alert("Success!"))
+              .catch(error => alert(error));
+          }}
           render={x => (
             <Form name="contact" data-netlify="true" data-netlify-honeypot="bot-field">
-              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="form-name" value="contact"/>
               <div className="form-item">
-                <Field name='name' type='text' placeholder='Name' />
+                <Field name='name' type='text' placeholder='Name'/>
               </div>
               <div className="form-item">
-                <Field name='email' type='email' placeholder='E-mail' />
+                <Field name='email' type='email' placeholder='E-mail'/>
               </div>
               <div className="form-item">
-                <Field name='subject' type='text' placeholder='Subject' />
+                <Field name='subject' type='text' placeholder='Subject'/>
               </div>
               <div className="form-item">
-                <Field component='textarea' className="textarea-field" name='msg' placeholder='Your message' />
+                <Field component='textarea' className="textarea-field" name='msg' placeholder='Your message'/>
               </div>
-              <ErrorMessage name='name' className='field-validation' component='div' />
-              <ErrorMessage name='email' className='field-validation' component='div' />
-              <ErrorMessage name='subject' className='field-validation' component='div' />
-              <ErrorMessage name='msg' className='field-validation' component='div' />
+              <ErrorMessage name='name' className='field-validation' component='div'/>
+              <ErrorMessage name='email' className='field-validation' component='div'/>
+              <ErrorMessage name='subject' className='field-validation' component='div'/>
+              <ErrorMessage name='msg' className='field-validation' component='div'/>
               <div className={`form-sending ${x.status ? x.status.css : ''}`}>
                 {x.status ? x.status.success : ''}
               </div>
@@ -89,7 +79,7 @@ const EmailForm = () => (
         />
       </div>
     </div>
-  </div >
+  </div>
 )
 
 export default EmailForm
