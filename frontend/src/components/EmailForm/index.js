@@ -52,7 +52,11 @@ const EmailForm = () => {
         <br/>
         <button type="submit">Submit</button>
       </form>
-      {msgSent && (<div>message sent!</div>)}
+      {msgSent && (
+        <div className="form-sending success">
+          Your email was sent!<br/>
+          I'll return it as soon as possible.
+        </div>)}
     </>
   )
 }
