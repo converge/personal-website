@@ -22,7 +22,7 @@ const EmailForm = () => {
     <>
       <form
         className="form-item"
-        name="contact2"
+        name="personal-site-email-contact"
         onSubmit={handleSubmit(onSubmit)}
         method="post"
         data-netlify="true"
