@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from "../Header";
 import AsideContent from "../AsideContent/";
-import './style.css';
 
 const Base = ({blogPosts}) => (
   <>

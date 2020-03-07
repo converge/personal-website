@@ -1,6 +1,6 @@
 import React from 'react';
 import PostContent from '../components/Blog/postContent'
-import Header from '../components/Header';
+import HeaderPost from '../components/Header/headerPost';
 import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
 
@@ -12,7 +12,7 @@ const Base = ({data}) => {
       </Helmet>
       <div className="app">
         <div className="container">
-          <Header/>
+          <HeaderPost/>
           <aside>
             <PostContent blogPost={data}/>
           </aside>

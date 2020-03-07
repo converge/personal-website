@@ -66,11 +66,13 @@ p {
     color: #4ce6ac;
     display: grid;
     justify-items: center;
+    /*min-height: 270px;*/
 }
 
 .content-block img {
     object-fit: contain;
     height: 225px;
+    padding-bottom: 20px;
 }
 
 .content-block ul {
@@ -196,16 +198,16 @@ p {
     color: #f23434;
 }
 .form-item input[type='text'], .form-item input[type='email'], .form-item textarea {
-    width: 250px;
+    width: 310px;
     margin-left: 30px;
     margin-bottom: 10px;
     font-size: 18px;
     padding: 5px;
     border: 0;
-    box-shadow: 0px 5px 5px #BCBCBC;
+    box-shadow: 0 5px 5px #BCBCBC;
 }
 .form-item textarea {
-    width: 290px;
+    width: 300px;
     height: 260px;
     border: 0;
     padding: 10px;
@@ -213,6 +215,7 @@ p {
 }
 .form-item button {
     margin-left: 30px;
+    margin-top: 10px;
     background-color: #4ce6ac;
     text-transform: uppercase;
     border: 0;
@@ -260,6 +263,27 @@ footer {
     }
     .job-desc {
         padding-left: 20px;
+    }
+    .form-item input[type='text'], .form-item input[type='email'], .form-item textarea {
+        width: 570px;
+    }
+    .form-item textarea {
+        width: 560px;
+    }
+}
+
+@media (min-width: 640px) {
+    .profile-pic-area img {
+        object-fit: contain;
+    }
+    .job-desc {
+        padding-left: 20px;
+    }
+    .form-item input[type='text'], .form-item input[type='email'], .form-item textarea {
+        width: 570px;
+    }
+    .form-item textarea {
+        width: 560px;
     }
 }
 
@@ -322,10 +346,10 @@ footer {
         margin-top: 15px;
     }
     .form-item input[type='text'], .form-item input[type='email'], .form-item textarea {
-        width: 570px;
+        width: 615px;
     }
     .form-item textarea {
-        width: 565px;
+        width: 605px;
         height: 460px;
     }
     .form-item button {
