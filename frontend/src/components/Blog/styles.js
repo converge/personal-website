@@ -17,6 +17,7 @@ export const BlogCategory = styled.p`
   margin-top: 15px;
   font-size: 0.9em;
   color: #a1a1a1;
+  margin-bottom: 10px;
   @media (min-width: 1024px) {
     font-size: 1em;
   }

@@ -1,5 +1,5 @@
 .blog-posts {
-  font-size: 1.5em;
+  font-size: 1rem;
   text-align: left;
 }
 
@@ -33,17 +33,6 @@
   font-size: 0.9em;
 }
 
-/* https://css-tricks.com/custom-list-number-styling/ */
-.markdown {
-  display: grid;
-  font-size: 0.55em;
-  margin-top: 5px;
-}
-
-.markdown p {
-  line-height: 2.1rem;
-}
-
 p code {
   color: #4d06c0;
   background-color: #e4e4e4;
@@ -51,21 +40,6 @@ p code {
 
 pre {
   font-size: 0.8rem;
-}
-
-.markdown ol {
-  list-style: none;
-  counter-reset: list-counter;
-}
-
-.markdown ol li {
-  counter-increment: list-counter;
-  font-style: italic;
-}
-
-.markdown ol li::before {
-  content: counter(list-counter) '. ';
-  font-style: initial;
 }
 
 .override {

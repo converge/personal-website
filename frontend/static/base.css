@@ -293,7 +293,7 @@ footer {
 @media (min-width: 1024px) {
     .container {
         display: grid;
-        grid-template-columns: 340px 684px;
+        grid-template-columns: 350px 1fr;
         background-image: linear-gradient(to right top, #390097, #4503b0, #5107ca, #5e0ce4, #6b12ff);
     }
     header {
@@ -363,7 +363,7 @@ footer {
 @media (min-width: 1250px) {
     .container {
         display: grid;
-        grid-template-columns: 494px 754px;
+        grid-template-columns: 250px;
     }
 
     header {
