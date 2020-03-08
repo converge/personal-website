@@ -1,0 +1,49 @@
+{
+  "name": "personal-web",
+  "version": "0.2.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.8",
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "formik": "^1.5.8",
+    "gatsby": "^2.19.27",
+    "gatsby-source-filesystem": "^2.1.48",
+    "gatsby-transformer-remark": "^2.6.53",
+    "prismjs": "^1.19.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-ga": "^2.7.0",
+    "react-helmet": "^5.2.1",
+    "react-hook-form": "^5.0.1",
+    "react-markdown": "^4.3.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.4.0",
+    "react-spinners": "^0.5.13",
+    "styled-components": "^4.4.1",
+    "uuid": "^3.4.0"
+  },
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "test:e2e": "NODE_ENV=test npx cypress run",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "cypress": "^4.1.0"
+  }
+}

@@ -1,0 +1,96 @@
+.blog-posts {
+  font-size: 1rem;
+  text-align: left;
+}
+
+.blog-posts a {
+  color: #5107cb;
+  font-weight: 300;
+}
+
+.blog-title {
+  margin-top: 40px;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: #4ce6ac;
+  border-radius: 20px;
+  padding: 15px;
+  color: #fff;
+}
+
+.content-blog-block {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  justify-content: flex-start;
+  padding: 20px;
+  color: #000;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.blog-category {
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+
+p code {
+  color: #4d06c0;
+  background-color: #e4e4e4;
+}
+
+pre {
+  font-size: 0.8rem;
+}
+
+.override {
+  display: block;
+  margin: 100px auto 0 auto;
+}
+
+.spinner {
+  /* can I remove it? */
+  /* margin-top: 80px; */
+  align-self: center;
+}
+
+.edit-post {
+  width: 60px;
+}
+
+.delete-post {
+  width: 60px;
+  color: #fff;
+  background-color: #ff2c55;
+}
+
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 15px;
+  margin-right: 30px;
+}
+
+.action-edit-delete {
+  justify-self: end;
+}
+
+.action-edit-delete button {
+  margin-left: 10px;
+}
+
+@media (min-width: 1024px) {
+  .blog-posts a {
+    color: #5107cb;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  .markdown {
+    font-size: 0.65em;
+    margin-top: 5px;
+  }
+  .spinner {
+    margin-top: 25px;
+  }
+}
