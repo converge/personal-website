@@ -8,6 +8,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.8",
     "axios": "^0.19.2",
+    "codeceptjs": "^2.5.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^4.1.0",
@@ -26,6 +27,7 @@
     "react-scripts": "^3.4.0",
     "react-spinners": "^0.5.13",
     "styled-components": "^4.4.1",
+    "typescript": "^3.8.3",
     "uuid": "^3.4.0"
   },
   "scripts": {
@@ -34,9 +36,6 @@
     "test:e2e": "NODE_ENV=test npx cypress run",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -44,6 +43,15 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "cypress": "^4.1.0"
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "cypress": "^4.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "playwright": "^0.11.1"
   }
 }

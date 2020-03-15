@@ -1,6 +1,7 @@
-describe('404 pages', () => {
-  it('should load 404 page', () => {
-    cy.visit('/some_non_existent_page')
-    cy.get('h1').should('contain', '404 page')
-  })
-})
+Feature('404 Error Page');
+
+Scenario('should load 404 page', (I) => {
+  I.amOnPage('/some_non_existent_page');
+  I.click('Preview custom 404 page');
+  I.see('404 page');
+});
