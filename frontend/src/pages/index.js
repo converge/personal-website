@@ -1,5 +1,5 @@
 import React from 'react';
-import {graphql} from "gatsby";
+import {graphql} from 'gatsby';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {fab} from '@fortawesome/free-brands-svg-icons';
 import {Helmet} from 'react-helmet';

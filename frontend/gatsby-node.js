@@ -13,7 +13,7 @@ exports.onCreateNode = ( { node, getNode, actions }) => {
   }
 }
 
-const blogPostTemplate = path.resolve(`./src/templates/template-jp.js`);
+const blogPostTemplate = path.resolve('./src/templates/template-jp.js');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;

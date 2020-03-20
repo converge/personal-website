@@ -1,5 +1,5 @@
 exports.config = {
-  tests: './__tests__/e2e/*.test.js',
+  tests: './__tests__/e2e/*.js',
   output: './__tests__/e2e/output',
   helpers: {
     Playwright: {

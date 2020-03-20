@@ -7,12 +7,13 @@
 module.exports = {
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `content`,
+        name: 'content',
         path: `${__dirname}/../content`,
       },
     },
-    `gatsby-transformer-remark`,
-  ]
-}
+    'gatsby-plugin-typescript',
+    'gatsby-transformer-remark',
+  ],
+};
