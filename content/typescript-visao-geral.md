@@ -1,13 +1,8 @@
 ---
-title: TypeScript Visão Geral (wip)
+title: TypeScript Visão Geral
 category: TypeScript
 created-at: 2020-03-21T12:05:00.857+00:00
 ---
-
-Work in Progress...
-
-<br/>
-
 
 <p align="center">
     <img alt="typescript" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/TypeScript_Logo_(Blue).svg/512px-TypeScript_Logo_(Blue).svg.png"/>
