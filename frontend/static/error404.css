@@ -6,26 +6,26 @@
   align-items: center;
 }
 
-h1 {
+.wrapper-404 h1 {
   font-size: 4rem;
   color: #782bf7;
   font-weight: bold;
 }
 
 @media (min-width: 640px) {
-  h1 {
+  .wrapper-404 h1 {
     font-size: 8rem;
   }
 }
 
 @media (min-width: 1024px) {
-    h1 {
+  .wrapper-404 h1 {
         font-size: 12rem;
     }
 }
 
 @media (min-width: 1250px) {
-    h1 {
+  .wrapper-404 h1 {
         font-size: 16rem;
     }
 }
