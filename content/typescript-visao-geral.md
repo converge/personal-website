@@ -4,8 +4,6 @@ category: TypeScript
 created-at: 2020-03-21T12:05:00.857+00:00
 ---
 
-# TypeScript Visão Geral
-
 "Uma longa caminhada começa com o primeiro passo". Mas antes de dar o primeiro passo, estando preparado para a caminhada,
 tudo se torna mais fácil. Esse post é sobre entender TypeScript de uma forma mais profunda, porque num momento ou outro,
 virão perguntas como:
