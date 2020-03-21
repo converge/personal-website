@@ -11,6 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Base from '../components/Base'
 
+
 export default ({data}) => {
   const {edges} = data.allMarkdownRemark;
 

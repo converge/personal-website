@@ -4,7 +4,11 @@ category: general
 created-at: 2019-06-20T19:48:28.184+00:00
 ---
 
-Looking some years back, we were all used to have a solid framework, promising to solve all of our issues, even if we realize that the framework solution was a bad solution, we kept it with, because… well, it’s the framework way. That’s what amazes me about React.js and JavaScript, some will complain about the huge number of libraries to solve same issues, but it’s actually a big plus, everything is moving fast, forward, to be better, and we’re free to keep what makes sense for us.
+Looking some years back, we were all used to have a solid framework, promising to solve all of our issues, 
+even if we realize that the framework solution was a bad solution, we kept it with, because… well, 
+it’s the framework way. That’s what amazes me about React.js and JavaScript, some will complain about the 
+huge number of libraries to solve same issues, but it’s actually a big plus, everything is moving fast, 
+forward, to be better, and we’re free to keep what makes sense for us.
 
 <br/>
 
@@ -53,9 +57,37 @@ Let's go deeper now and check the important files and how they work.*src/compone
 
 <br/>
 To create a Form using UnForm, we initially instantiate two components, `Form` and `Input`. `Form` will work as a wrapper to indicate we're using the Form component of UnForm, and Input is another component to indicate we're using an HTML input element.
-
 <br/>
-*Form* contains some properties to ease the process of form handling, in this tutorial we're going to use `onSubmit` to link a function to handle the form submission and `schema` to handle with `Yup` validations.Knowing that, now we can understand what's going on here:```js<Form onSubmit={handleSubmit} schema={schema}>  <div className="form-item">    <Input name="username" type="text" placeholder="Username" />  </div>  <div className="form-item">    <Input name="password" type="password" placeholder="Password" />  </div>  <span>{authUser}</span>  <div className="form-item">    <button type="submit">Login</button>  </div></Form>```When we hit the `Login` button, the `schema` will be called and Yup will validate our data. We're setting our validation in this self-explanatory function:```jsconst schema = Yup.object().shape({  username: Yup.string().required('Username is required'),  password: Yup.string().required('Password is required')})```What's important about it, is that `UnForm` will catch the error message and display inside an <span> element just after the validated field.
+<br/>
+
+*Form* contains some properties to ease the process of form handling, in this tutorial we're going to use `onSubmit` to link a function to handle the form submission and `schema` to handle with `Yup` validations.Knowing that, now we can understand what's going on here:
+
+```js
+<Form onSubmit={handleSubmit} schema={schema}>
+  <div className="form-item">
+    <Input name="username" type="text" placeholder="Username" />
+  </div>
+  <div className="form-item">
+    <Input name="password" type="password" placeholder="Password" />
+  </div>
+  <span>{authUser}</span>
+  <div className="form-item">
+    <button type="submit">Login</button>
+  </div>
+</Form>
+```
+
+When we hit the `Login` button, the `schema` will be called and Yup will validate our data. We're setting our validation in this self-explanatory function:
+
+
+```js
+const schema = Yup.object().shape({
+  username: Yup.string().required('Username is required'),
+  password: Yup.string().required('Password is required')
+})
+```
+
+What's important about it, is that `UnForm` will catch the error message and display inside an <span> element just after the validated field.
 
 <br/><br/>
 The `handleSubmit` function will be called in case the validation pass and will check for the login and password. Here we have just a simple credential validation for the tutorial purpose:
@@ -99,6 +131,7 @@ Let's check how the tests were made, load the `./__tests__/cypress.e2e.js` file:
 // active IntelliSense///
 <reference types="Cypress" />
 ```
+
 ```js
 // describe what we will test
 describe('e2e: login validation', () => {

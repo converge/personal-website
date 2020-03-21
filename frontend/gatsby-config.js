@@ -13,7 +13,22 @@ module.exports = {
         path: `${__dirname}/../content`,
       },
     },
-    'gatsby-plugin-typescript',
-    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-prismjs',
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 756,
+            },
+          },
+          'gatsby-remark-copy-linked-files',
+        ],
+      },
+    },
   ],
 };
