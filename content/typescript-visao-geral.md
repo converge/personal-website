@@ -1,5 +1,5 @@
 ---
-title: wip: TypeScript Visão Geral
+title: TypeScript Visão Geral (wip)
 category: TypeScript
 created-at: 2020-03-21T12:05:00.857+00:00
 ---
