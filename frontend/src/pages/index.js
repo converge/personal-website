@@ -27,7 +27,7 @@ export default ({data}) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: {fields: id, order: DESC}) {
       edges {
         node {
           id
