@@ -130,7 +130,7 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -165,10 +165,23 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   // transform: null,
+  // transform: {
+  //   // '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
+  //   '\\.ts$': ['ts-jest'],
+  // },
+
+  transform: {
+    '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$':
+      'jest-transform-stub',
+    '^.+\\.(js|jsx)?$': 'babel-jest',
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
   //   "/node_modules/"
+  // ],
+  // transformIgnorePatterns: [
+  //   'node_modules/(?!((jest-)?react-native|react-clone-referenced-element|react-navigation|react-native-router-flux))'
   // ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
@@ -182,4 +195,5 @@ module.exports = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
 };

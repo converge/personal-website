@@ -1,5 +1,5 @@
-import profilePic from "../../imgs/profile_pic.png";
-import React from "react";
+import React from 'react';
+import profilePic from '../../imgs/profile_pic.png';
 
 const Header = () => (
   <header>
