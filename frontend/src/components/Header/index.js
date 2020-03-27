@@ -1,10 +1,10 @@
-import profilePic from "../../imgs/profile_pic.png";
-import React from "react";
+import React from 'react';
+import profilePic from '../../imgs/profile_pic.png';
 
 const Header = () => (
   <header>
     <div className="content-block profile-pic-area">
-      <img src={profilePic} alt="João Vanzuita"/>
+      <img src={profilePic} alt="João Vanzuita" />
     </div>
     <div className="content-block profile-info-area">
       <section>

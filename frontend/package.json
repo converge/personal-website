@@ -33,7 +33,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
-    "test": "jest",
+    "test:unit": "jest",
     "test:e2e": "npx codeceptjs run",
     "eject": "react-scripts eject"
   },

@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from 'react'
-import {Link} from 'gatsby';
-import {HashLoader} from 'react-spinners'
-import './style.css'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'gatsby';
+import { HashLoader } from 'react-spinners';
+import './style.css';
 
-const Blog = ({blogPosts}) => {
+const Blog = ({ blogPosts }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const postsList = blogPosts.map((post) => (
     <li key={post.node.id}><Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link></li>
-  ))
+  ));
 
   useEffect(() => {
     (postsList.length > 0) ? setIsLoading(false) : setIsLoading(true);
@@ -22,9 +22,9 @@ const Blog = ({blogPosts}) => {
       <div className="spinner">
         <HashLoader
           className="override"
-          sizeUnit={"px"}
+          sizeUnit="px"
           size={75}
-          color={'#f2da34'}
+          color="#f2da34"
           loading={isLoading}
         />
       </div>
@@ -34,7 +34,7 @@ const Blog = ({blogPosts}) => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Blog;
