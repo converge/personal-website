@@ -10,6 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Link Checker
+        with:
+          args: -v "content/**/*.md"
         uses: lycheeverse/lychee-action@v1.0.4
       - name: Create Issue From File
         uses: peter-evans/create-issue-from-file@v2
