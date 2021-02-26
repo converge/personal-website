@@ -5,8 +5,9 @@ jobs:
     runs-on: jp-lab
     steps:
       - uses: actions/checkout@v2
-      - name: Link Checker
+      - name: new step
         run: pwd && ls -l
+      - name: Link Checker
         with:
           args: -v "**/*.md"
         uses: lycheeverse/lychee-action@v1.0.4
