@@ -8,6 +8,7 @@ jobs:
         run: echo 'Hi!'
       - name: Checkout
         uses: actions/checkout@v1
+        persist-credentials: false
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@master
         with:
