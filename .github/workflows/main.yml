@@ -4,23 +4,25 @@ jobs:
   linkChecker:
     runs-on: jp-lab
     steps:
-      - uses: actions/checkout@v2
-      - name: Link Checker
-        with:
-          args: -v "**/*.md"
-        uses: lycheeverse/lychee-action@v1.0.4
+      - name: Hey yoh!
+        run: echo 'Hi!'
+      # - uses: actions/checkout@v2
+      # - name: Link Checker
+      #   with:
+      #     args: -v "**/*.md"
+      #   uses: lycheeverse/lychee-action@v1.0.4
       # - name: Create Issue From File
       #   uses: peter-evans/create-issue-from-file@v2
       #   with:
       #     title: Link Checker Report
       #     content-filepath: ./lychee/out.md
       #     labels: report, automated issue
-      - name: comment PR
-        uses: machine-learning-apps/pr-comment@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          path: ./lychee/out.md
-      - name: Fail if there were link errors
-        run: exit ${{ steps.lychee.outputs.exit_code }}
+      # - name: comment PR
+      #   uses: machine-learning-apps/pr-comment@master
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     path: ./lychee/out.md
+      # - name: Fail if there were link errors
+      #   run: exit ${{ steps.lychee.outputs.exit_code }}
 
