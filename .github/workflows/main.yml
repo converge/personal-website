@@ -6,6 +6,13 @@ jobs:
     steps:
       - name: Hey yoh!
         run: echo 'Hi!'
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@master
+        with:
+          message: 'Example of message !'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - uses: actions/checkout@v2
       # - name: Link Checker
       #   with:
