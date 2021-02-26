@@ -1,23 +1,15 @@
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [pull_request]
 name: Check markdown links
 jobs:
   linkChecker:
-    runs-on: ubuntu-latest
+    runs-on: jp-lab
     steps:
-      - uses: actions/checkout@v2
-      - name: Link Checker
+      - name: Hey yoh!
+        run: echo 'Hi!'
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@master
         with:
-          args: -v "**/*.md"
-        uses: lycheeverse/lychee-action@v1.0.4
-      - name: Create Issue From File
-        uses: peter-evans/create-issue-from-file@v2
-        with:
-          title: Link Checker Report
-          content-filepath: ./lychee/out.md
-          labels: report, automated issue
-      - name: Fail if there were link errors
-          run: exit ${{ steps.lychee.outputs.exit_code }}
+          message: 'Example of message !'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
