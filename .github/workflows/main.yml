@@ -5,7 +5,7 @@ jobs:
     runs-on: jp-lab
     steps:
       - name: new step
-        run: pwd && ls -l && chmod 755 -R *
+        run: whoami && pwd && ls -l && chmod 755 -R ./lychee
       - uses: actions/checkout@v2
       - name: Link Checker
         with:
