@@ -18,6 +18,6 @@ jobs:
         with:
           path: ./lychee/out.md
       - name: last step
-        run: rm -rf ./lychee/
+        run: sudo rm -rf ./lychee/
       - name: Fail if there were link errors
         run: exit ${{ steps.lychee.outputs.exit_code }}
