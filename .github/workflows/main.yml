@@ -4,9 +4,9 @@ jobs:
   linkChecker:
     runs-on: jp-lab
     steps:
-      - uses: actions/checkout@v2
       - name: new step
         run: pwd && ls -l
+      - uses: actions/checkout@v2
       - name: Link Checker
         with:
           args: -v "**/*.md"
