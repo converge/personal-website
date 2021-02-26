@@ -17,5 +17,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           path: ./lychee/out.md
+      - name: last step
+        run: rm -rf ./lychee/
       - name: Fail if there were link errors
         run: exit ${{ steps.lychee.outputs.exit_code }}
