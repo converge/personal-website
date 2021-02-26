@@ -5,7 +5,7 @@ jobs:
     runs-on: jp-lab
     steps:
       - name: new step
-        run: pwd && ls -l
+        run: pwd && ls -l && chmod 755 -R *
       - uses: actions/checkout@v2
       - name: Link Checker
         with:
