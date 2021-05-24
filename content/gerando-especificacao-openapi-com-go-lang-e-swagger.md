@@ -1,22 +1,22 @@
 ---
-title: Gerando Especificacao OpenAPI com Go Lang e Swagger
+title: Gerando Especificação OpenAPI com Go Lang e Swagger
 category: golang
 created-at: 2021-05-23T23:04:03.857+00:00
 ---
 
-OpenAPI é uma padrão de especificacão de API, criado de maneira a facilitar o processo de desenvolvimento
-e o entendimento do que a API realiza, de uma maneira simples em que ambos, programadores e usuários
+OpenAPI é uma padrão de especificação de API, criado de maneira a facilitar o processo de desenvolvimento
+e o entendimento do que a API realiza, de uma maneira simples em que programadores e utilizadores
 da API possam ler, utilizar e experimentar o seu funcionamento de forma simples e rápida.
 
-O Http Swagger é um wrapper para automatizar a geracão de especificacão de API utilizando Swagger
+O Http Swagger é um wrapper para automatizar a geração de especificação de API utilizando Swagger
 versão 2.0.
 
-## Os principais PROs gerando a documentacao da API dessa forma são:
+## Os principais PROs gerando a documentação da API dessa forma são:
 
-- approach documentacao como código.
-- a documentacão fica próxima da funcão que a utiliza, qualquer dúvida ou atualizacão, o que precisa
+- approach documentação como código.
+- a documentação fica próxima da função que a utiliza, qualquer dúvida ou atualização, o que precisa
 ser consultado e atualizado estão próximos.
-- Em Go Lang, se algo está errado, o código não compila. Em outras palavras, se a definicão da API
+- Em Go Lang, se algo está errado, o código não compila. Em outras palavras, se a definição da API
 estiver errada, eu logo noto e posso rapidamente corrigi-la.
   
 ## Mão na massa!
@@ -31,15 +31,15 @@ go mod init github.com/<seu-user>/seu-projeto
 
 ### 2. Inicie sua API básica
 
-Nesse exemplo crio duas funcões, um endpoint GET e outro POST.
+Nesse exemplo crio duas funções, um endpoint GET e outro POST.
 
 #### 2.1 Endpoint básico para mostrar a versão da sua API
 
 Utilizo o [router Chi](https://github.com/go-chi/chi), porque preciso definir os verbos GET e POST 
-no router, e não somente verificar o verbo dentro da funcão. Por exemplo, tenho um endpoint ficticio [GET] `/teste`, neste endpoint definimos a especificacão
+no router, e não somente verificar o verbo na função. Por exemplo, tenho um endpoint fictício [GET] `/teste`, neste endpoint definimos a especificacão
 OpenAPI para este endpoint, quando quero um verbo [POST] para a mesma entidade, eu preciso de um
-router p/ definir qual funcão é responsável pelo [GET] e qual funcão é responsável pelo [POST],
-vou mostrar isso na prática um pouco mais a frente.
+router p/ definir qual função é responsável pelo [GET] e qual função é responsável pelo [POST],
+vou mostrar isso, na prática, um pouco mais a frente.
 
 ```go
 func main() {
@@ -53,15 +53,15 @@ func main() {
 }
 ```
 
-P/ informar a minha API que uma especificacão OpenAPI será criada, preciso criamos um endpoint chamado
-`/swagger`, e definimos a espcificacão inicial. Neste endpoint `/swagger` a documentacão auto gerada
+P/ informar a minha API que uma especificação OpenAPI será criada, preciso criamos um endpoint chamado
+`/swagger`, e definimos a espcificacão inicial. Neste endpoint `/swagger` a documentação auto gerada
 estará disponível usando a UI do Swagger. P/ isso defino este endpoint na API da seguinte forma:
 
 ```go
 r.Get("/swagger/*", httpSwagger.WrapHandler)
 ```
 
-E adiciono a especificacão OpenAPI p/ a funcão main, que ficará:
+E adiciono a especificação OpenAPI p/ a função main, que ficará:
 ```go
 // @title Titulo da sua API
 // @version 1.0
@@ -83,7 +83,7 @@ func main() {
 }
 ```
 
-Agora defino o exemplo p/ o endpoint `[GET] /` sem a especificacão OpenAPI:
+Agora defino o exemplo p/ o endpoint `[GET] /` sem a especificação OpenAPI:
 
 ```go
 func version(w http.ResponseWriter, r *http.Request) {
@@ -106,9 +106,9 @@ E em seguida defino a especificacão OpenAPI da seguinte forma p/ este endpoint:
 
 #### 2.2 Adicionando os imports necessários
 
-O primeiro import é importante p/ informar onde minha definicão da API está localizada, em seguida
+O primeiro import é importante p/ informar onde a minha definição da API está localizada, em seguida
 importo o router e o http-swagger que é responsável em ler os comentários e transformar em
-especificacão no formato OpenAPI.
+especificação no formato OpenAPI.
 
 *Primeiro instalo a biblioteca Chi:*
 
@@ -126,11 +126,11 @@ go get -u github.com/swaggo/http-swagger
 	httpSwagger "github.com/swaggo/http-swagger"
 ```
 
-#### 3. Utilizando a ferramenta Swag p/ fazer o parser e gerar a especificacão OpenAPI
+#### 3. Utilizando a ferramenta Swag p/ fazer o parser e gerar a especificação OpenAPI
 
-Neste ponto já posso chamar o `Swag`, que criará os arquivos necessários p/ posteriormente
-chamarmos o Swagger UI, que é a página web que mostra a documentacão que especificamos nos
-comentários das funcões, e também inicio a API para que a página fique exposta na API.
+Neste ponto já posso chamar o `Swag`, que criará os arquivos necessários, p/ posteriormente
+chamarmos o Swagger UI, que é a página web que mostra a documentação que especificamos nos
+comentários das funções, e também inicio a API para que a página fique exposta na API.
 
 Então novamente, os passos p/ gerar a documentão e iniciar o Swagger UI são:
 
@@ -139,11 +139,11 @@ swag init
 go run main.go
 ```
 
-Agora é possível access o Swagger UI através do endereco http://localhost:3001/swagger/
+Agora é possível access o Swagger UI através do endereço http://localhost:3001/swagger/
 
 ### Adicionando endpoint /my-bike para o verbo [GET]
 
-É tão claro e fácil, que agora somente lendo o código é possível identificar como gerar documentacão
+É tão claro e fácil, que agora somente lendo o código é possível identificar como gerar documentação
 através dos comentários funciona, e como a OpenAPI é simples e gostosa de trabalhar.
 
 ```go
@@ -165,7 +165,7 @@ log.Println(err)
 
 ### Adicionando endpoint /my-bike para o verbo [POST]
 
-Seguindo a ideia anterior, esta é a definicão p/ o método POST:
+Seguindo a ideia anterior, esta é a definição p/ o método POST:
 
 ```go
 // createMyBike
