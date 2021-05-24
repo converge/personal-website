@@ -29,7 +29,7 @@ cd $_
 go mod init github.com/<seu-user>/seu-projeto
 ```
 
-### 2. Inicie sua API básica
+### 2. Inicie a API básica
 
 Nesse exemplo crio duas funções, um endpoint GET e outro POST.
 
