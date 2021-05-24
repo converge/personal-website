@@ -4,22 +4,24 @@ category: golang
 created-at: 2021-05-23T23:04:03.857+00:00
 ---
 
-OpenAPI é uma padrão de formato p/ especificar o funcionamento de uma API. Existem várias ferramentas
-ao redor dessa especificacão p/ auxiliar no desenvolvimento e manutencão de APIs, e existem maneiras
-diferentes de gerar essa documentacão. Uma forma que eu gosto muito de gerar essa documentacão, é
-as definindo ao lado das funcões da API em forma de documentacão.
+OpenAPI é uma padrão de especificacão de API, criado de maneira a facilitar o processo de desenvolvimento
+e o entendimento do que a API realiza, de uma maneira simples em que ambos, programadores e usuários
+da API possam ler, utilizar e experimentar o seu funcionamento de forma simples e rápida.
 
-### Os principais PROs gerando a documentacao da API dessa forma são:
+O Http Swagger é um wrapper para automatizar a geracão de especificacão de API utilizando Swagger
+versão 2.0.
+
+## Os principais PROs gerando a documentacao da API dessa forma são:
 
 - approach documentacao como código.
 - a documentacão fica próxima da funcão que a utiliza, qualquer dúvida ou atualizacão, o que precisa
 ser consultado e atualizado estão próximos.
 - Em Go Lang, se algo está errado, o código não compila. Em outras palavras, se a definicão da API
-estiver errada, você logo irá notar e pode rapidamente corrigi-la.
+estiver errada, eu logo noto e posso rapidamente corrigi-la.
   
-### Mão na massa!
+## Mão na massa!
 
-#### 1. O primeiro passo é iniciar o seu projeto:
+### 1. O primeiro passo é iniciar o projeto:
 
 ```bash
 mkdir seu-projecto
@@ -27,18 +29,17 @@ cd $_
 go mod init github.com/<seu-user>/seu-projeto
 ```
 
-#### 2. Inicie sua API básica
+### 2. Inicie sua API básica
 
-Nesse example criaremos duas funcões, um GET e outro POST.
+Nesse exemplo crio duas funcões, um endpoint GET e outro POST.
 
-#### 2.1 Endpoint básico que mostra a versão
+#### 2.1 Endpoint básico para mostrar a versão da sua API
 
-Iremos usar o router Chi, porque precisamos definir os verbos GET e POST no router e não fazendo a
-validacão dentro da funcão pois a especificacão OpenAPI que iremos definir precisa ser exclusiva p/
-cada método. Por exemplo, temos um endpoint [GET] `/teste`, neste endpoint definimos a especificacão
-OpenAPI para este endpoint, quando tivermos um endpoint para a entidade teste ( `[POST] /teste` ),
-precisaremos definir o POST na definicacão do endpoint [POST /teste]. Em poucas palavras, não podemos
-ter a definicão de [GET] e [POST] na mesma funcão. 
+Utilizo o [router Chi](https://github.com/go-chi/chi), porque preciso definir os verbos GET e POST 
+no router, e não somente verificar o verbo dentro da funcão. Por exemplo, tenho um endpoint ficticio [GET] `/teste`, neste endpoint definimos a especificacão
+OpenAPI para este endpoint, quando quero um verbo [POST] para a mesma entidade, eu preciso de um
+router p/ definir qual funcão é responsável pelo [GET] e qual funcão é responsável pelo [POST],
+vou mostrar isso na prática um pouco mais a frente.
 
 ```go
 func main() {
@@ -52,15 +53,15 @@ func main() {
 }
 ```
 
-P/ informarmos a nossa API que uma especificacão OpenAPI será criada, nós criamos um endpoint chamado
-`/swagger` e definimos a espcificacão inicial. Neste endpoint `/swagger` a documentacão auto gerada
-estará disponível usando a UI do Swagger. P/ isso definimos este endpoint na API da seguinte forma:
+P/ informar a minha API que uma especificacão OpenAPI será criada, preciso criamos um endpoint chamado
+`/swagger`, e definimos a espcificacão inicial. Neste endpoint `/swagger` a documentacão auto gerada
+estará disponível usando a UI do Swagger. P/ isso defino este endpoint na API da seguinte forma:
 
 ```go
 r.Get("/swagger/*", httpSwagger.WrapHandler)
 ```
 
-E adicionar a especificacão OpenAPI p/ a funcão main, que ficará:
+E adiciono a especificacão OpenAPI p/ a funcão main, que ficará:
 ```go
 // @title Titulo da sua API
 // @version 1.0
@@ -73,6 +74,7 @@ E adicionar a especificacão OpenAPI p/ a funcão main, que ficará:
 func main() {
     r := chi.NewRouter()
     r.Get("/", version)
+    r.Get("/swagger/*", httpSwagger.WrapHandler)
     fmt.Println("API listening at port 3001...")
     err := http.ListenAndServe(":3001", r)
     if err != nil {
@@ -81,7 +83,7 @@ func main() {
 }
 ```
 
-Agora podemos definir nosso exemplo p/ o endpoint `[GET] /` sem a especificacão OpenAPI:
+Agora defino o exemplo p/ o endpoint `[GET] /` sem a especificacão OpenAPI:
 
 ```go
 func version(w http.ResponseWriter, r *http.Request) {
@@ -89,7 +91,7 @@ func version(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-E agora podemos definir a especificacão OpenAPI da seguinte forma p/ este endpoint:
+E em seguida defino a especificacão OpenAPI da seguinte forma p/ este endpoint:
 
 ```go
 // version godoc
@@ -102,17 +104,91 @@ E agora podemos definir a especificacão OpenAPI da seguinte forma p/ este endpo
 // @Router / [get]
 ```
 
-Neste ponto podemos chamar o `swat init`, que irá criar os arquivos necessários p/ posteriormente
-chamarmos o Swagger UI, que é a interface gráfica que mostra a documentacão com uma interface gráfica.
+#### 2.2 Adicionando os imports necessários
 
-Então novamente, os passos são:
+O primeiro import é importante p/ informar onde minha definicão da API está localizada, em seguida
+importo o router e o http-swagger que é responsável em ler os comentários e transformar em
+especificacão no formato OpenAPI.
+
+*Primeiro instalo a biblioteca Chi:*
+
+```bash
+go get -u github.com/go-chi/chi/v5
+go get -u github.com/swaggo/swag/cmd/swag
+go get -u github.com/swaggo/http-swagger
+```
+
+*E adiciono os importes:*
+
+```go
+	_ "github.com/converge/strave-stories/docs" // docs is generated by Swag CLI, you have to import it.
+	"github.com/go-chi/chi/v5"
+	httpSwagger "github.com/swaggo/http-swagger"
+```
+
+#### 3. Utilizando a ferramenta Swag p/ fazer o parser e gerar a especificacão OpenAPI
+
+Neste ponto já posso chamar o `Swag`, que criará os arquivos necessários p/ posteriormente
+chamarmos o Swagger UI, que é a página web que mostra a documentacão que especificamos nos
+comentários das funcões, e também inicio a API para que a página fique exposta na API.
+
+Então novamente, os passos p/ gerar a documentão e iniciar o Swagger UI são:
 
 ```bash
 swag init
 go run main.go
 ```
 
-Abra a Swagger UI através do endereco http://localhost:3001/swagger/
+Agora é possível access o Swagger UI através do endereco http://localhost:3001/swagger/
 
+### Adicionando endpoint /my-bike para o verbo [GET]
 
+É tão claro e fácil, que agora somente lendo o código é possível identificar como gerar documentacão
+através dos comentários funciona, e como a OpenAPI é simples e gostosa de trabalhar.
 
+```go
+// listMyBike
+// @Summary List My Bike
+// @Description List details of My Bike
+// @Tags listMyBike
+// @Accept json
+// @Produce json
+// @Success 200 {object} Bike
+// @Router /my-bike [GET]
+func listMyBike(w http.ResponseWriter, r *http.Request) {
+err := json.NewEncoder(w).Encode(myBike)
+if err != nil {
+log.Println(err)
+}
+}
+```
+
+### Adicionando endpoint /my-bike para o verbo [POST]
+
+Seguindo a ideia anterior, esta é a definicão p/ o método POST:
+
+```go
+// createMyBike
+// @Summary Create a Bike
+// @Description Create a Bike
+// @Tags createMyBike
+// @Accept json
+// @Produce json
+// @param body body Bike true "Bike Object"
+// @Success 201 {object} Bike
+// @Router /my-bike [POST]
+func createMyBike(w http.ResponseWriter, r *http.Request) {
+	reqBody, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		log.Println(err)
+	}
+	defer r.Body.Close()
+	json.Unmarshal(reqBody, &myBike)
+	if err != nil {
+		log.Println(err)
+	}
+	w.Write([]byte("Bike created!"))
+}
+```
+
+Um exemplo completo e funcionando está disponível [aqui](https://github.com/converge/my-bike-api)
